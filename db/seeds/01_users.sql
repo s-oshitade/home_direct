@@ -14,5 +14,8 @@ INSERT INTO users (name, email) VALUES ('May Barrett', 'gabriellabarrera@aol.com
 INSERT INTO users (name, email) VALUES ('Christine Buchanan', 'nathannguyen@ymail.com');
 INSERT INTO users (name, email) VALUES ('Oscar Little', 'alainamcfarland@hotmail.com');
 INSERT INTO users (name, email) VALUES ('Mabelle Hughes', 'jordansears@outlook.com');
-
-
+INSERT INTO users (name, email) VALUES ('Pauline Cruz', 'hannahpickett@inbox.com');
+INSERT INTO users (name, email) VALUES ('Patrick Hammond', 'cameroncherry@yahoo.com');
+INSERT INTO users (name, email) VALUES ('Nora Alexander', 'coltonlove@aol.com');
+INSERT INTO users (name, email) VALUES ('Maria Nelson', 'alexandravalencia@ymail.com');
+INSERT INTO users (name, email) VALUES ('Frances Lowe', 'mackenziebutler@mail.com');

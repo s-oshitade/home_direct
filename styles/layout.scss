@@ -1,6 +1,28 @@
-// See: https://sass-lang.com/
+@import "variables";
 
 body,
 html {
   margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// body {
+//   color: $main-font-color;
+//   background-color: red;
+//   font-size: 24px;
+//   font-family: $primary-fontstack;
+// }
+
+main {
+  // width: 90%;
+  // height: 600px;
+  background-color: $color-accent;
+  margin: auto;
 }

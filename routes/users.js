@@ -7,10 +7,30 @@
 
 const express = require('express');
 const router  = express.Router();
+const cookieSession = require('cookie-session'); // For encrypted cookies
+
+router.use(cookieSession({
+  name: 'session',
+  keys: ["key1", "key2"],
+}));
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
+  // Generic Login Without an ID
+  router.get("/login", (req, res) => {
+
+    //Initialize a cookie session
+    req.session.user_id = 1;
+
+    res.redirect('/'); // Redirect to home page
+  })
+
+  // Login user with specific ID
+  router.get("/login/:id", (req, res) => {
+
+    //Fetch user from database
+    req.session.user_id = req.params.id;
+       db.query(`SELECT * FROM users
+       WHERE id = ${req.params.id};`) // Fetch user id from url
       .then(data => {
         const users = data.rows;
         res.json({ users });
@@ -20,6 +40,14 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message });
       });
-  });
+  })
+
+  // Logout user and delete user_id cookie
+  router.get("/logout", (req, res) => {
+  req.session = null;
+  res.redirect('/'); // Redirect to home page
+}) ;
+
+  ;
   return router;
 };

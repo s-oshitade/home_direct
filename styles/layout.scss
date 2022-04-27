@@ -14,6 +14,7 @@ html {
 }
 
 body {
+  min-width: 600px;
   color: $main-font-color;
   background-color: $background-body;
   font-size: 24px;

@@ -1,12 +1,14 @@
 @import "_variables";
 nav {
   background-color: $navbar-color;
-  height: 120px;
+  height: $navbar-height;
+  width: 100%;
   color: $font-color2;
   padding: 1.5rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
   img {
     border-radius: 50%;
     height: 100%;

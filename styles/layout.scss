@@ -13,16 +13,10 @@ html {
   box-sizing: inherit;
 }
 
-// body {
-//   color: $main-font-color;
-//   background-color: red;
-//   font-size: 24px;
-//   font-family: $primary-fontstack;
-// }
-
-main {
-  // width: 90%;
-  // height: 600px;
-  background-color: $color-accent;
-  margin: auto;
+body {
+  color: $main-font-color;
+  background-color: $background-body;
+  font-size: 24px;
+  font-family: $primary-fontstack;
 }
+

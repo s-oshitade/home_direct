@@ -1,14 +1,14 @@
 @import "variables";
 
 
-body {
+main {
   // display: flex;
   // justify-content: center;
   // align-items: center;
   // min-height: 100vh;
 
-  background-color: blue;
-
+  background-color: $main-color;
+  margin: auto;
 
   // background: rgb(163, 208, 219);
 //   background: linear-gradient(

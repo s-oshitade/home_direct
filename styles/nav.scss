@@ -9,17 +9,16 @@ nav {
   justify-content: space-between;
   align-items: center;
   position: fixed;
+  // top: 2.5%;
   img {
     border-radius: 50%;
     height: 100%;
   }
-  span {
-    font-family: $secondary-fontstack;
-  }
+  // span {
+  //   font-family: $secondary-fontstack;
+  // }
   .nav-right {
-    // display: flex;
-    // align-items:center;
-    vertical-align: auto;
+    display: flex;
 
   }
 

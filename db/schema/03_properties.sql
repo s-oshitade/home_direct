@@ -1,0 +1,23 @@
+
+DROP TABLE IF EXISTS properties CASCADE;
+CREATE TABLE properties (
+  id SERIAL PRIMARY KEY NOT NULL,
+  owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  admin_id INTEGER REFERENCES admins(id) ON DELETE CASCADE,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  area VARCHAR(20) NOT NULL,
+  property_type VARCHAR(30) NOT NULL,
+  number_of_bathrooms INTEGER NOT NULL DEFAULT 0,
+  number_of_bedrooms INTEGER NOT NULL DEFAULT 0,
+  image_url_1 VARCHAR(450) NOT NULL,
+  country VARCHAR(255) NOT NULL,
+  city VARCHAR(255) NOT NULL,
+  street VARCHAR(255) NOT NULL,
+  province VARCHAR(255) NOT NULL,
+  post_code VARCHAR(255) NOT NULL,
+  price INTEGER NOT NULL,
+  active BOOLEAN NOT NULL DEFAULT TRUE,
+  featured BOOLEAN NOT NULL DEFAULT TRUE,
+  listing_date DATE NOT NULL
+);

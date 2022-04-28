@@ -21,7 +21,7 @@
 /* Tablet: minimum width of 768px to maximum width of 1024px */
 @media only screen and (min-width: 768px) {
 nav {
-  background-color: $navbar-color2;
+  background-color: #406882;
   .nav-right {
     flex-direction: row;
   }
@@ -53,13 +53,14 @@ main {
 /*Laptops / Desktops: minimum width of 1024px */
 @media only screen and (min-width: 1024px) {
   nav {
-    background-color: $navbar-color3;
+    background-color: #1A374D;
     .nav-right {
       flex-direction: row;
       align-content: center;
     }
     a {
       color: #545149;
+      color: white;
     }
   }
 
@@ -83,8 +84,8 @@ main {
   }
 
   .cta {
-    background-color: $color-accent1;
-    color: $font-color2;
+    background-color: white;
+    color: #545149;
   }
   
 

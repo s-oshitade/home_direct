@@ -21,6 +21,20 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <style>
+    .img-btn {
+      display: flex;
+      justify-content: space-between;
+    }
+
+
+    #gallery img {
+      max-width: 13vw;
+      border: 1px solid #000
+    }
+
+
+  </style>
 </head>
 
 <body>
@@ -43,23 +57,45 @@
           <h2>
             <%= row.title %>
           </h2>
-          <img class="property-image" src=<%=row.image_url_1 %>>
+          <img class="main-image" src=<%=row.cover_image_url %>>
+          <div id="gallery">
+            <img src=<%=row.image_url_1 %>>
+
+            <img src=<%=row.image_url_2 %>>
+
+            <img src=<%=row.image_url_3 %>>
+
+            <img src=<%=row.image_url_4 %>>
+          </div>
+
+          <div class="img-btn">
+            <button id="button-previous" type="button" class="btn btn-light">prev</button>
+            <button id="button-next" type="button" class="btn btn-light">next</button>
+          </div>
           <div>
-            <div>
+            <div class="owner_message">
               <span> Send a message to the owner</span>
               <button type="button" class="owner-message">Send Message</button>
             </div>
-            <p>
+            <spam>Price: $ <%= row.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %>
+            <p>Address:
               <%= row.street%>, <%= row.city%>, <%= row.province%>, <%= row.post_code%>
             </p>
-            <div class= "property-information">
-              <p>Building Type: <%= row.property_type%></p>
-              <p>Area: <%= row.area%> </p>
-              <p>Number of Bedrooms: <%= row.number_of_bedrooms%> </p>
-              <p>Number of Bathrooms: <%= row.number_of_bathrooms%> </p>
+            <div class="property-information">
+              <p>Building Type: <%= row.property_type%>
+              </p>
+              <p>Area: <%= row.area%>
+              </p>
+              <p>Number of Bedrooms: <%= row.number_of_bedrooms%>
+              </p>
+              <p>Number of Bathrooms: <%= row.number_of_bathrooms%>
+              </p>
               <p>PROPERTY INFORMATION: </p>
-              <p> <%= row.description %></p>
-              <p>Listed At  <%= row.listing_date.toLocaleDateString()%></p>
+              <p>
+                <%= row.description %>
+              </p>
+              <p>Listed At <%= row.listing_date.toLocaleDateString()%>
+              </p>
 
             </div>
             <% } %>

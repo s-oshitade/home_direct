@@ -1,0 +1,87 @@
+@import "_variables";
+/* Mobile: minimum width of 768px to maximum width of 1024px */
+@media only screen and (max-width: 768px) {
+  nav {
+    .nav-right {
+      // flex-direction: column;
+      font-size: 1rem;
+      display: none;
+    }
+
+    .cta {
+
+      background-color: white;
+    }
+
+    .nav-right-visible {
+      display: flex;
+    }
+  }
+}
+
+/* Tablet: minimum width of 768px to maximum width of 1024px */
+@media only screen and (min-width: 768px) {
+nav {
+  background-color: $navbar-color2;
+  .nav-right {
+    flex-direction: row;
+  }
+}
+#burger {
+  display: none;
+}
+
+main {
+  .feed {
+    flex-direction: row;
+    img {
+      width: 100%;
+      height: 200px;
+      margin: auto;
+    }
+  }
+}
+
+.cta {
+
+  background-color: white;
+}
+}
+
+/*Laptops / Desktops: minimum width of 1024px */
+@media only screen and (min-width: 1024px) {
+  nav {
+    background-color: $navbar-color3;
+    .nav-right {
+      flex-direction: row;
+      align-content: center;
+    }
+    a {
+      color: #545149;
+    }
+  }
+
+  .super-main {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+  
+  main {
+    .feed {
+      flex-direction: row;
+      img {
+        width: 100%;
+        height: 200px;
+        margin: auto;
+      }
+    }
+  }
+
+  .cta {
+    background-color: $color-accent1;
+    color: $font-color2;
+  }
+
+
+
+}

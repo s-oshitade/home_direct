@@ -10,3 +10,9 @@ main {
   background-color: $main-color;
   margin: auto;
 }
+
+.super-main {
+  padding-top: $navbar-height;
+  width: 90%;
+  margin: auto;
+}

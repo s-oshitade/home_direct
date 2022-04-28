@@ -1,24 +1,29 @@
 @import "_variables";
 nav {
   background-color: $navbar-color;
-  height: 120px;
+  min-height: $navbar-height;
+  width: 100%;
   color: $font-color2;
   padding: 1.5rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
   img {
     border-radius: 50%;
-    height: 100%;
+    height: 70px;
   }
-  span {
-    font-family: $secondary-fontstack;
+
+  a {
+    color: $anchor-color;
   }
+  // span {
+  //   font-family: $secondary-fontstack;
+  // }
   .nav-right {
-    // display: flex;
-    // align-items:center;
-    vertical-align: auto;
+    display: flex;
 
   }
+
 
 }

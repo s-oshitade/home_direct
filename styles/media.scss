@@ -3,9 +3,14 @@
 @media only screen and (max-width: 768px) {
   nav {
     .nav-right {
-      flex-direction: column;
+      // flex-direction: column;
       font-size: 1rem;
       display: none;
+    }
+
+    .cta {
+
+      background-color: white;
     }
 
     .nav-right-visible {
@@ -23,6 +28,11 @@ nav {
   display: none;
 }
 
+.cta {
+
+  background-color: white;
+}
+
 }
 
 /*Laptops / Desktops: minimum width of 1024px */
@@ -32,9 +42,14 @@ nav {
     margin: 0 auto;
   }
 
+  .cta {
+    background-color: $color-accent1;
+    color: $font-color2;
+  }
+
   nav {
     background-color: white;
-    color: $main-font-color;
+    color: black;
   }
 
 }

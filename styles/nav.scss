@@ -1,7 +1,7 @@
 @import "_variables";
 nav {
   background-color: $navbar-color;
-  height: $navbar-height;
+  min-height: $navbar-height;
   width: 100%;
   color: $font-color2;
   padding: 1.5rem 1.5rem;
@@ -9,10 +9,13 @@ nav {
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  // top: 2.5%;
   img {
     border-radius: 50%;
     height: 100%;
+  }
+
+  a {
+    color: $achor-color;
   }
   // span {
   //   font-family: $secondary-fontstack;

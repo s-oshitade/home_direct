@@ -45,11 +45,7 @@
       <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, numquam? Reprehenderit, illum? Sequi
         corporis consectetur.
       </h1>
-      <!-- <img
-      src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTAyfHxob21lfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60">  -->
-      <img
-        src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGhvbWV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-        alt="header-image">
+        <img src="https://remax-listingphotos-ca5.imgix.net/rets-images-vancouver-can/720cf6c3e2b1f88a05add5ddc25afa3caf441463-1-large.jpeg?fit=max&auto=format,compress&fm=pjpg&cs=srgb&q=35&h=640" alt="header-image">
     </header>
     <main>
       <h2>Find your next perfect place with ease!</h2>
@@ -113,24 +109,26 @@
       </div>
       <section class="feed">
         <% for (const row of featuredproperties) { %>
-          <div>
-            <h2>
-              <%= row.title %>
-            </h2>
-            <img class="property-image" src=<%=row.cover_image_url %>>
-            <div>
-              <spam>$ <%= row.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %>
-              </spam>
-              <i class="fa-solid fa-heart"></i>
-            </div>
-            <p>
-              <%= row.property_type%> | <%= row.number_of_bedrooms%> bed | <%= row.number_of_bathrooms%> bath
-            </p>
-            <p>
-              <%= row.street%>, <%= row.city%>, <%= row.province%>
-            </p>
-            <% } %>
+          <div id="feed">
+            <article>             
+              <h5>
+                <%= row.title %>
+              </h5>
+              <img  class="property-image" src=<%=row.cover_image_url %>>
+              <div>
+                <spam>$ <%= row.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %>
+                </spam>
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <p>
+                <%= row.property_type%> | <%= row.number_of_bedrooms%> bed | <%= row.number_of_bathrooms%> bath
+              </p>
+              <p>
+                <%= row.street%>, <%= row.city%>, <%= row.province%>
+              </p>
+            </article>
           </div>
+          <% } %>
       </section>
 
     </main>

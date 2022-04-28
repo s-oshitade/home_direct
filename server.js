@@ -40,7 +40,7 @@ const usersRoutes = require("./routes/users");
 const adminRoutes = require("./routes/admin")
 const propertiesRoutes = require("./routes/properties");
 const contactRoutes = require("./routes/contact");
-const errorRoutes =require("./routes/error");
+const errorRoutes = require("./routes/error");
 const widgetsRoutes = require("./routes/widgets");
 
 // Mount all resource routes
@@ -58,7 +58,17 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("index");
+  let query = `SELECT * FROM properties WHERE featured is TRUE`;
+  db.query(query)
+    .then(data => {
+      const featuredproperties = data.rows;
+      res.render('index', { featuredproperties });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 app.listen(PORT, () => {

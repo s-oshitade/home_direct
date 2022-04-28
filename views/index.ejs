@@ -18,124 +18,113 @@
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/media.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/image-slider.js"></script>
+
+
+  <style>
+
+
+
+    .wrapper {
+      width: 1400px;
+      margin: 100px auto;
+      height: 720px;
+      position: relative;
+    }
+
+    .slider {
+      list-style: none;
+      width: 100%;
+      display: flex;
+      height: 100%;
+    }
+
+    .slider .slides:not(:first-child) {
+      display: none;
+    }
+
+    .prev,
+    .next {
+      position: absolute;
+      color: #a25959;
+      cursor: pointer;
+      top: calc((720px - 50%));
+    }
+
+    .prev {
+
+      margin-left: 10px;
+    }
+
+    .next {
+      right: 0;
+      margin-right: 130px;
+    }
+  </style>
 </head>
 
 <body>
   <nav>
-
     <img src="https://github.com/s-oshitade/home-direct/blob/frontend/docs/logo.png?raw=true" alt="logo">
-    <i id="burger" class="fa-solid fa-bars"></i>
-    <div class="nav-right">
-      <a href="/">Home</a>
-      <a href="/properties">Our Properties</a>
-      <a href="/login">Login/ Sign Up</a>
-      <br>
-      <a href="/contact" class="btn cta">Contact Us</a>
+    <div class="navRight">
+      <strong>Home</strong>
+      Our Properties
+      Login/ Sign Up
+      Contact Us
     </div>
-
-
   </nav>
-  <div class="super-main">
-    <header>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, numquam? Reprehenderit, illum? Sequi
-        corporis consectetur.
-      </h1>
-      <!-- <img
-      src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTAyfHxob21lfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60">  -->
-      <img
-        src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGhvbWV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-        alt="header-image">
-    </header>
-    <main>
-      <h2>Find your next perfect place with ease!</h2>
-      <section class="search">
-        <form class="row gx-6 gy-2 align-items-center" action="/properties" method="POST">
-          <div class="col-sm-2">
-            <label class="visually-hidden" for="specificSizeInputName">Preference</label>
-            <input type="text" class="form-control" id="specificSizeInputName" placeholder="City">
-          </div>
-          <div class="col-sm-2">
-            <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-            <select class="form-select" id="specificSizeSelect">
-              <option selected>Rooms</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-              <option value="4">Four</option>
-              <option value="5">Five</option>
-            </select>
-          </div>
-          <div class="col-sm-2">
-            <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-            <select class="form-select" id="specificSizeSelect">
-              <option selected>Baths</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-              <option value="4">Four</option>
-              <option value="5">Five</option>
-            </select>
-          </div>
-          <div class="col-sm-2">
-            <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-            <select class="form-select" id="specificSizeSelect">
-              <option selected>$</option>
-              <option value="1">$100K</option>
-              <option value="2">$200K</option>
-              <option value="3">$300K</option>
-              <option value="4">$400K</option>
-              <option value="5">$500K</option>
-            </select>
-          </div>
-          <div class="col-sm-2">
-            <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-            <select class="form-select" id="specificSizeSelect">
-              <option selected>$$$$</option>
-              <option value="1">$300K</option>
-              <option value="2">$500K</option>
-              <option value="3">$1M</option>
-              <option value="4">$5M</option>
-              <option value="5">😎</option>
-            </select>
-          </div>
-          <div class="col-auto">
-            <button type="submit" class="btn btn-primary">Search!</button>
-          </div>
-        </form>
-      </section>
-      <div> 
-        <h2>Check out our featured listings...</h2>
+  <header>
+    <h1>This is the header</h1>
+  </header>
+  <main class="container">
+    <section class="featured-properties">
+      <div class="wrapper">
+        <div class="prev">
+          <i class="fas fa-arrow-left fa3X"></i>
+        </div>
+        <ul class="slider">
+          <li class="slides"> <img class="https://www.thehousedesigners.com/images/plans/UEI/uploads/32717-B%20FRONT%20ELEVATION%20-%20Copy.jpg"></li>
+
+          <li class="slides"><img src="https://www.houseplans.net/uploads/plans/24251/elevations/52033-1200.jpg?v=112519094357"></li>
+
+          <li class="slides"><img src="https://www.thehousedesigners.com/images/plans/UDC/bulk/8500/1569588_0.jpg"></li>
+
+          <li class="slides"><img src="https://cdn.vox-cdn.com/thumbor/frFQQhOsxl8DctGjkR8OLHpdKMs=/0x0:3686x2073/1200x800/filters:focal(1549x743:2137x1331)/cdn.vox-cdn.com/uploads/chorus_image/image/68976842/House_Tour_Liverman_3D6A3138_tour.0.jpg"></li>
+
+          <li class="slides"><img src="https://www.coolhouseplans.com/varnish-images/plans/75977/75977-b600.jpg"></li>
+        </ul>
+        <div class="next">
+          <i class="fas fa-arrow-right fa3X"></i>
+        </div>
       </div>
-      <section class="feed">
-
+      <% for (const row of featuredproperties) { %>
         <div>
-          <img src="https://images.unsplash.com/photo-1534889156217-d643df14f14a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fGhvbWV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" alt="">
+          <h2>
+            <%= row.title %>
+          </h2>
+          <img class="property-image" src=<%=row.cover_image_url %>>
+          <div>
+            <spam>$ <%= row.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %>
+            </spam>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          <p>
+            <%= row.property_type%> | <%= row.number_of_bedrooms%> bed | <%= row.number_of_bathrooms%> bath
+          </p>
+          <p>
+            <%= row.street%>, <%= row.city%>, <%= row.province%>
+          </p>
+          <% } %>
         </div>
-        <div>
-          <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fGhvbWV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" alt="">
-        </div>
-        <div>
-          <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODV8fGhvbWV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" alt="">
-        </div>
-        <div>
-          <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTAyfHxob21lfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="">
-        </div>
-      </section>
+    </section>
+  </main>
+  <footer>
+    <h1>This is the footer</h1>
 
-    </main>
-    <footer>
-      <h6>&copy LHL Jan 2022 </h6>
-      <h6>Produced for learning purposes only.</h6>
-
-    </footer>
-
-  </div>
-
+  </footer>
 </body>
 
 </html>

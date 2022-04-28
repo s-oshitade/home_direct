@@ -3,12 +3,13 @@ nav {
   background-color: $navbar-color;
   min-height: $navbar-height;
   width: 100%;
-  color: $font-color2;
+  // color: $font-color2;
   padding: 1.5rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
+  font-size: smaller;
   img {
     border-radius: 50%;
     height: 70px;
@@ -16,12 +17,20 @@ nav {
 
   a {
     color: $anchor-color;
+    text-decoration: none;
+    font-size: smaller;
   }
   // span {
   //   font-family: $secondary-fontstack;
   // }
   .nav-right {
     display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    // .cta {
+    //   align-self: flex-end;
+    //   // background-color: red;
+    // }
 
   }
 

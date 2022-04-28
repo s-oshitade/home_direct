@@ -23,23 +23,58 @@
 @media only screen and (min-width: 768px) {
 nav {
   background-color: $navbar-color2;
+  .nav-right {
+    flex-direction: row;
+  }
 }
 #burger {
   display: none;
+}
+
+main {
+  .feed {
+    flex-direction: row;
+    img {
+      width: 100%;
+      height: 200px;
+      margin: auto;
+    }
+  }
 }
 
 .cta {
 
   background-color: white;
 }
-
 }
 
 /*Laptops / Desktops: minimum width of 1024px */
 @media only screen and (min-width: 1024px) {
+  nav {
+    background-color: $navbar-color3;
+    .nav-right {
+      flex-direction: row;
+      align-content: center;
+    }
+    a {
+      color: #545149;
+    }
+  }
+
   .super-main {
     max-width: 1024px;
     margin: 0 auto;
+  }
+  
+  main {
+    .feed {
+      flex-direction: row;
+      img {
+        width: 100%;
+        height: 200px;
+        margin: auto;
+      }
+    }
   }
 
   .cta {
@@ -47,9 +82,6 @@ nav {
     color: $font-color2;
   }
 
-  nav {
-    background-color: white;
-    color: black;
-  }
+
 
 }

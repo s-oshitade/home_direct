@@ -6,9 +6,24 @@ main {
   // justify-content: center;
   // align-items: center;
   // min-height: 100vh;
+  // background-color: $main-color;
+  // margin: auto;
+  h2 {
+    // color: $main-font-color;
+    font-family: cursive;
+    // display: block;
+    padding: 10px 0;
 
-  background-color: $main-color;
-  margin: auto;
+  }
+  .feed {
+    display: flex;
+    flex-direction: column;
+    img {
+      width: 670px;
+      height: 500px;
+      margin: auto;
+    }
+  }
 }
 
 .super-main {

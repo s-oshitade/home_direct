@@ -61,8 +61,8 @@ app.get("/", (req, res) => {
   let query = `SELECT * FROM properties WHERE featured is TRUE`;
   db.query(query)
     .then(data => {
-      const featuredproperties = data.rows;
-      res.render('index', { featuredproperties });
+      const featuredProperties = data.rows;
+      res.render('index', { featuredProperties });
     })
     .catch(err => {
       res

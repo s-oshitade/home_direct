@@ -50,15 +50,15 @@
     <main>
       <h2>Find your next perfect place with ease!</h2>
       <section class="search">
-        <form class="row gx-6 gy-2 align-items-center" action="/properties" method="POST">
+        <form class="row gx-6 gy-2 align-items-center" action="/properties" method="GET">
           <div class="col-sm-2">
             <label class="visually-hidden" for="specificSizeInputName">Preference</label>
-            <input type="text" class="form-control" id="specificSizeInputName" placeholder="City">
+            <input type="text" class="form-control" name="city" id="specificSizeInputName" placeholder="City">
           </div>
           <div class="col-sm-2">
             <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-            <select class="form-select" id="specificSizeSelect">
-              <option selected>Rooms</option>
+            <select class="form-select" id="specificSizeSelect" name="number_of_bedrooms">
+              <option selected value="">Rooms</option>
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
@@ -68,8 +68,8 @@
           </div>
           <div class="col-sm-2">
             <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-            <select class="form-select" id="specificSizeSelect">
-              <option selected>Baths</option>
+            <select class="form-select" id="specificSizeSelect" name="number_of_bathrooms">
+              <option selected value="">Baths</option>
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
@@ -79,24 +79,24 @@
           </div>
           <div class="col-sm-2">
             <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-            <select class="form-select" id="specificSizeSelect">
-              <option selected>$</option>
-              <option value="1">$100K</option>
-              <option value="2">$200K</option>
-              <option value="3">$300K</option>
-              <option value="4">$400K</option>
-              <option value="5">$500K</option>
+            <select class="form-select" id="specificSizeSelect" name="minimum_price">
+              <option selected value="">$</option>
+              <option value="100000">$100K</option>
+              <option value="200000">$200K</option>
+              <option value="300000">$300K</option>
+              <option value="400000">$400K</option>
+              <option value="500000">$500K</option>
             </select>
           </div>
           <div class="col-sm-2">
             <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-            <select class="form-select" id="specificSizeSelect">
-              <option selected>$$$$</option>
-              <option value="1">$300K</option>
-              <option value="2">$500K</option>
-              <option value="3">$1M</option>
-              <option value="4">$5M</option>
-              <option value="5">😎</option>
+            <select class="form-select" id="specificSizeSelect" name="maximum_price">
+              <option selected value="">$$$$</option>
+              <option value="300000">$300K</option>
+              <option value="500000">$500K</option>
+              <option value="1000000">$1M</option>
+              <option value="5000000">$5M</option>
+              <option value="5000000">😎</option>
             </select>
           </div>
           <div class="col-auto">
@@ -104,11 +104,12 @@
           </div>
         </form>
       </section>
-      <div> 
+      <div>
         <h2>Check out our featured listings...</h2>
       </div>
       <section class="feed">
-        <% for (const row of featuredproperties) { %>
+
+        <% for (const row of featuredProperties) { %>
           <div id="feed">
             <article>             
               <h5>
@@ -127,6 +128,7 @@
                 <%= row.street%>, <%= row.city%>, <%= row.province%>
               </p>
             </article>
+
           </div>
           <% } %>
       </section>

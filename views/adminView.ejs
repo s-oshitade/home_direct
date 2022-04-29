@@ -50,7 +50,10 @@
   <header>
     <h1>This is the header</h1>
   </header>
-  <main class="container">
+  <main style="margin-top: 200px;" class="container">
+    <form method="POST" action="/admin/add_form">
+      <button type="submit" class="btn btn-primary btn-lg">Add a new Listing</button>
+    </form>
     <section class="properties">
       <% for (const row of properties) { %>
         <div>
@@ -96,9 +99,21 @@
               </p>
               <p>Listed At <%= row.listing_date.toLocaleDateString()%>
               </p>
-              <td><form method="POST" action="/admin/properties/<%= row.property_id %>/delete">  <!-- Form button to delete a listing-->
-                <button type="submit" class="btn btn-outline-danger">Delete</button>
+              <form method="POST" action="/admin/properties/<%= row.property_id %>/delete">  <!-- Form button to delete a listing-->
+                <button type="submit" class="btn btn-danger">Delete</button>
               </form>
+              <% if (row.active === true) { %>
+
+              <form method="POST" action="/admin/properties/<%= row.property_id %>/sold">  <!-- Form button to mark property as sold-->
+                <button type="submit" class="btn btn-success">Mark as sold</button>
+              </form>
+
+              <% } else { %>
+                <form method="POST" action="/admin/properties/<%= row.property_id %>/sold">  <!-- Form button to mark property as available -->
+                  <button type="submit" class="btn btn-secondary">SOLD</button>
+                </form>
+              <% } %>
+
             </div>
             <% } %>
           </div>

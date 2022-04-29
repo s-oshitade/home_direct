@@ -17,7 +17,8 @@ module.exports = (db) => {
   })
   // Fetch all the properties from the database
   router.get("/admin/:id", (req, res) => {
-    let user = isAdmin(req.params.id)
+    let user = isAdmin(req.params.id, db);
+    console.log(user);
 
     req.session.user_id = req.params.id;
     let query = `SELECT properties.*, images.* FROM properties
@@ -153,27 +154,17 @@ module.exports = (db) => {
       });
     ;
   });
-
-
-  // Function to check if user is admin
-  function isAdmin(id) {
-    let userID = [id];
-    let userQuery = `SELECT * FROM users
-    WHERE id = $1`;
-    db.query(userQuery,userID).then(data => {
-       if(data.rows[0].is_admin === true) {
-         console.log(data.rows[0].is_admin)
-         return data.rows[0].is_admin ;
-       } else
-       {
-         console.log("User is not an Admin");
-         return false;
-       }
-    })
-   }
-
   return router;
 };
 
-
-
+  // Function to check if user is admin
+   async function isAdmin(id, db) {
+    //let item = false;
+    let userID = [id];
+    let userQuery = `SELECT * FROM users
+    WHERE id = $1`;
+    await db.query(userQuery,userID).then(data => {
+      console.log(data.rows[0].is_admin);
+         return data.rows[0].is_admin;
+    });
+   }

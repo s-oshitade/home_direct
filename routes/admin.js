@@ -8,26 +8,62 @@ router.use(cookieSession({
 }));
 
 module.exports = (db) => {
-  // Generic Admin Login Without an ID
-  router.get("/admin", (req, res) => {
+  // Fetch all the properties from the database
+  router.get("/admin/:id", (req, res) => {
+    let user = isAdmin(req.params.id)
 
-    //Initialize a cookie session
-    req.session.user_id = 2;
+    req.session.user_id = req.params.id;
+    let query = `SELECT properties.*, images.* FROM properties
+    JOIN images ON properties.id = images.property_id`;
+    db.query(query)
+      .then(data => {
+        const properties = data.rows;
+        //console.log(properties)
+        res.render("adminView", { properties });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  })
 
-    res.redirect('/'); // Redirect to home page
-  });
+  router.post("/admin/properties/:id/delete", (req, res) => {
+    let id = parseInt(req.params.id);
+    const values = [id];
+    let query = `DELETE FROM properties
+    WHERE id = $1`;
+    db.query(query, values)
+      .then((data)=> {
+        console.log("ID is = " + id);
+        res.redirect(`/admin/${id}`);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+    ;
+  }) ;
 
-  router.post('/edit', (req, res) => {
-
-  });
-
-  router.post('/edit', (req, res) => {
-
-  });
-
-  router.post('/edit', (req, res) => {
-
-  });
+  function isAdmin(id) {
+    let userID = [id];
+    let userQuery = `SELECT * FROM users
+    WHERE id = $1`;
+    db.query(userQuery,userID).then(data => {
+       if(data.rows[0].is_admin === true) {
+         console.log(data.rows[0].is_admin)
+         return data.rows[0].is_admin ;
+       } else
+       {
+         console.log("User is not an Admin");
+         return false;
+       }
+    })
+   }
 
   return router;
 };
+
+
+

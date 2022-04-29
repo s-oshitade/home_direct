@@ -22,7 +22,12 @@ main {
       width: 670px;
       height: 500px;
       margin: auto;
+      border-radius: 5%;
     }
+  }
+
+  .fa-solid:hover{
+    color: royalblue;
   }
 
 }

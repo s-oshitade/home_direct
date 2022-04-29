@@ -26,27 +26,9 @@
 </head>
 
 <body>
-  <nav>
-
-    <img src="https://github.com/s-oshitade/home-direct/blob/frontend/docs/logo.png?raw=true" alt="logo">
-    <i id="burger" class="fa-solid fa-bars"></i>
-    <div class="nav-right">
-      <a href="/">Home</a>
-      <a href="/properties">Our Properties</a>
-      <a href="/login">Login/ Sign Up</a>
-      <br>
-      <a href="/contact" class="btn cta">Contact Us</a>
-    </div>
-
-
-  </nav>
+  <%- include('partials/_nav') %>
   <div class="super-main">
-    <header>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, numquam? Reprehenderit, illum? Sequi
-        corporis consectetur.
-      </h1>
-        <img src="https://remax-listingphotos-ca5.imgix.net/rets-images-vancouver-can/720cf6c3e2b1f88a05add5ddc25afa3caf441463-1-large.jpeg?fit=max&auto=format,compress&fm=pjpg&cs=srgb&q=35&h=640" alt="header-image">
-    </header>
+    <%- include('partials/_header') %>
     <main>
       <h2>Find your next perfect place with ease!</h2>
       <section class="search">
@@ -134,12 +116,8 @@
       </section>
 
     </main>
-    <footer>
-      <h6>&copy LHL Jan 2022 </h6>
-      <h6>Produced for learning purposes only.</h6>
-
-    </footer>
-
+    <hr>
+    <%- include('partials/_footer') %>
   </div>
 
 </body>

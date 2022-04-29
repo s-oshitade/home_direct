@@ -557,7 +557,7 @@ VALUES (
     'Condo',
     2,
     3,
-    'https://remax-listingphotos-ca1.imgix.net/x2/@v=-154420186@/63144/3/340/24271340/24271340_1.jpg?fit=max&auto=format,compress&fm=pjpg&cs=srgb&q=35&w=1255',
+    'https://remax-listingphotos-ca5.imgix.net/rets-images-vancouver-can/7835a92bb2699ef091638f8c75f8ec1554c716f3-1-large.jpeg?fit=max&auto=format,compress&fm=pjpg&cs=srgb&q=35&w=1255',
     'Canada',
     'Halifax',
     '1585 South Park St',

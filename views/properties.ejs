@@ -21,6 +21,8 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/search-error-message.js"></script>
+
   <style>
     .img-btn {
       display: flex;
@@ -32,6 +34,16 @@
       max-width: 13vw;
       border: 1px solid #000
     }
+    .error-message {
+  display: none;
+  text-align: center;
+  border: 2px solid rgb(11, 0, 0);
+  margin-left: 91px;
+  color: rgb(186, 171, 171);
+  padding: 8px;
+  margin-right: 46px;
+  margin-top: 100px;
+}
 
 
   </style>
@@ -99,6 +111,9 @@
 
             </div>
             <% } %>
+          </div>
+          <div class="error-message">
+            <p class="error-type"></p>
           </div>
     </section>
   </main>

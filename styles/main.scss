@@ -37,3 +37,17 @@ main {
   width: 90%;
   margin: auto;
 }
+
+.form-signin {
+  width: 300px;
+  margin: auto;
+  form {
+    margin: auto;
+    margin-top: 40%;
+  
+  }    
+  .text-muted {
+      font-size: x-small;
+      bottom: 5px;
+    }
+}

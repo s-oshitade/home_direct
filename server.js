@@ -46,11 +46,11 @@ const loginRoutes = require("./routes/login");
 
 // Mount all resource routes
 
-app.use("/users", usersRoutes(db));// Only line 62 should remain as /
+// app.use("/users", usersRoutes(db));// Only line 62 should remain as /
 app.use("/admin", adminRoutes(db));
 app.use("/properties", propertiesRoutes(db));
 app.use("/login", loginRoutes(db))
-app.use("/login/:userID", loginRoutes(db))
+app.use("/login/:userID", usersRoutes(db))
 app.use("/contact", contactRoutes());
 app.use("/error", errorRoutes());
 app.use("/api/widgets", widgetsRoutes(db));

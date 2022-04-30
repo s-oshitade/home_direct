@@ -5,7 +5,7 @@ const nodemailer = require('nodemailer');
 module.exports = (db) => {
 
   // Fetch all the properties from the database
-  router.get("/properties", (req, res) => {
+  router.get("/", (req, res) => {
     let queryString = `SELECT properties.*, images.*,users.* FROM properties
     JOIN images ON properties.id = images.property_id
     JOIN users ON users.id = properties.owner_id;`;

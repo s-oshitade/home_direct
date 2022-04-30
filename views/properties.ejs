@@ -22,8 +22,11 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/search-error-message.js"></script>
+  <script type="text/javascript" src="/scripts/owner-message.js"></script>
+
 
   <style>
+    /* prev and next butttons */
     .img-btn {
       display: flex;
       justify-content: space-between;
@@ -34,18 +37,98 @@
       max-width: 13vw;
       border: 1px solid #000
     }
+
+    /* error message from search bar? */
     .error-message {
-  display: none;
-  text-align: center;
-  border: 2px solid rgb(11, 0, 0);
-  margin-left: 91px;
-  color: rgb(186, 171, 171);
-  padding: 8px;
-  margin-right: 46px;
-  margin-top: 100px;
-}
+      display: none;
+      text-align: center;
+      border: 2px solid rgb(11, 0, 0);
+      margin-left: 91px;
+      color: rgb(186, 171, 171);
+      padding: 8px;
+      margin-right: 46px;
+      margin-top: 100px;
+    }
 
+    /* property owner message form */
+    .user-form{
+      display: none;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
 
+    .brand {
+      text-align: center;
+    }
+
+    .brand span {
+      color: #fff;
+    }
+
+    .wrapper {
+      box-shadow: 0 0 20px 0 rgba(72, 94, 116, 0.7);
+    }
+
+    .wrapper>* {
+      padding: 1em;
+    }
+
+    .company-info {
+      /* display: none; */
+      background: #c9e6ff;
+    }
+
+    .company-info h3,
+    .company-info ul {
+      text-align: center;
+      margin: 0 0 1rem 0;
+    }
+
+    .contact {
+      background: #f9feff;
+    }
+
+    .contact form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+
+    .contact form label {
+      display: block;
+    }
+
+    .contact form p {
+      margin: 0;
+    }
+
+    .contact form .full {
+      grid-column: 1 / 3;
+    }
+
+    .contact form button,
+    .contact form input,
+    .contact form textarea {
+      width: 100%;
+      padding: 1em;
+      border: 1px solid #c9e6ff;
+    }
+
+    .contact form button {
+      background: #c9e6ff;
+      border: 0;
+      text-transform: uppercase;
+    }
+
+    .contact form button:hover,
+    .contact form button:focus {
+      background: #92bde7;
+      color: #fff;
+      outline: 0;
+      transition: background-color 2s ease-out;
+    }
   </style>
 </head>
 
@@ -88,33 +171,71 @@
             <div class="owner_message">
               <span> Send a message to the owner</span>
               <button type="button" class="owner-message">Send Message</button>
-            </div>
-            <spam>Price: $ <%= row.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %>
-            <p>Address:
-              <%= row.street%>, <%= row.city%>, <%= row.province%>, <%= row.post_code%>
-            </p>
-            <div class="property-information">
-              <p>Building Type: <%= row.property_type%>
-              </p>
-              <p>Area: <%= row.area%>
-              </p>
-              <p>Number of Bedrooms: <%= row.number_of_bedrooms%>
-              </p>
-              <p>Number of Bathrooms: <%= row.number_of_bathrooms%>
-              </p>
-              <p>PROPERTY INFORMATION: </p>
-              <p>
-                <%= row.description %>
-              </p>
-              <p>Listed At <%= row.listing_date.toLocaleDateString()%>
-              </p>
 
+              <div class="user-form">
+                <div class="company-info">
+
+                  <ul>
+                    <li><i class="fa fa-user" aria-hidden="true"></i>
+                      <%= row.name %>
+                    </li>
+                    <li><i class="fa fa-phone"></i> (555) 555-5555</li>
+                    <li><i class="fa fa-envelope"></i>
+                      <%= row.email %>
+                    </li>
+                  </ul>
+                </div>
+                <div class="contact">
+                  <h3>Send Email</h3>
+
+                  <form method="POST" action="/properties/<%= row.property_id%>/message">
+                    <p>
+                      <label>Name</label>
+                      <input type="text" name="name">
+                    </p>
+
+                    <p>
+                      <label>Email Address</label>
+                      <input type="email" name="email">
+                    </p>
+
+                    <p class="full">
+                      <label>Message</label>
+                      <textarea name="message" rows="5"></textarea>
+                    </p>
+                    <p class="full">
+                      <button type="submit">Submit</button>
+                    </p>
+                  </form>
+                </div>
+              </div>
+              <div class="property-information">
+              <spam>Price: $ <%= row.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %>
+                  <p>Address:
+                    <%= row.street%>, <%= row.city%>, <%= row.province%>, <%= row.post_code%>
+                  </p>
+
+                    <p>Building Type: <%= row.property_type%>
+                    </p>
+                    <p>Area: <%= row.area%>
+                    </p>
+                    <p>Number of Bedrooms: <%= row.number_of_bedrooms%>
+                    </p>
+                    <p>Number of Bathrooms: <%= row.number_of_bathrooms%>
+                    </p>
+                    <p>PROPERTY INFORMATION: </p>
+                    <p>
+                      <%= row.description %>
+                    </p>
+                    <p>Listed At <%= row.listing_date.toLocaleDateString()%>
+                    </p>
+
+                  </div>
+                  <% } %>
             </div>
-            <% } %>
-          </div>
-          <div class="error-message">
-            <p class="error-type"></p>
-          </div>
+            <div class="error-message">
+              <p class="error-type"></p>
+            </div>
     </section>
   </main>
   <footer>

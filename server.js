@@ -42,12 +42,15 @@ const propertiesRoutes = require("./routes/properties");
 const contactRoutes = require("./routes/contact");
 const errorRoutes = require("./routes/error");
 const widgetsRoutes = require("./routes/widgets");
+const loginRoutes = require("./routes/login");
 
 // Mount all resource routes
 
-app.use("/", usersRoutes(db));
-app.use("/", adminRoutes(db));
-app.use("/", propertiesRoutes(db));
+// app.use("/users", usersRoutes(db));// Only line 62 should remain as /
+app.use("/admin", adminRoutes(db));
+app.use("/properties", propertiesRoutes(db));
+app.use("/login", loginRoutes(db))
+app.use("/login/:userID", usersRoutes(db))
 app.use("/contact", contactRoutes());
 app.use("/error", errorRoutes());
 app.use("/api/widgets", widgetsRoutes(db));
@@ -57,8 +60,8 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-app.get("/", (req, res) => {
-  let query = `SELECT * FROM properties WHERE featured is TRUE`;
+app.get("/", (req, res) => { //62
+  let query = `SELECT * FROM properties WHERE featured is TRUE LIMIT 6`;
   db.query(query)
     .then(data => {
       const featuredProperties = data.rows;

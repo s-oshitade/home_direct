@@ -4,7 +4,7 @@ const router = express.Router();
 module.exports = (db) => {
 
   // Fetch all the properties from the database
-  router.get("/properties", (req, res) => {
+  router.get("/", (req, res) => {
     let queryString = `SELECT properties.*, images.* FROM properties
     JOIN images ON properties.id = images.property_id `;
     const queryParams = [];

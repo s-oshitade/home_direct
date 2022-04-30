@@ -22,7 +22,7 @@ module.exports = (db) => {
       });
   });
 
-  router.get("/properties/search", (req, res) => {
+  router.get("/search", (req, res) => {
     let queryString = `SELECT properties.*, images.*,users.* FROM properties
     JOIN images ON properties.id = images.property_id
     JOIN users ON users.id = properties.owner_id `;

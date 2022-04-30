@@ -22,7 +22,7 @@ VALUES (
 INSERT INTO users (name, email, password, is_admin)
 VALUES (
     'Dale Coleman',
-    'michaelgray@mail.com',
+    'edgarsargsyan888000@gmail.com',
     'password',
     'no'
   );

@@ -18,7 +18,7 @@ module.exports = (db) => {
       });
   });
   router.post("/", (req, res) => {
-    console.log("Printing req.body", res.body)
+    console.log("Printing req.body", req.body)
     let query = `
     SELECT * FROM properties
     LIMIT 12`;

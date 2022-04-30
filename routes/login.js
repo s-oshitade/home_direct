@@ -9,7 +9,8 @@ module.exports = (db) => {
       .then(data => {
         const properties_user = data.rows;
         // res.json({ properties_user });
-        res.render("users", {properties_user});
+        res.render("login", {properties_user});
+
       })
       .catch(err => {
         res

@@ -4,20 +4,9 @@ const cookieSession = require('cookie-session');
 const {getUserByEmail} = require('../helpers');
 
 module.exports = (db) => {
+  //Render login form 
   router.get("/", (req, res) => {
-    let query = `SELECT * FROM properties LIMIT 12`;
-    console.log(query);
-    db.query(query)
-      .then(data => {
-        const properties_user = data.rows;
-        // res.json({ properties_user });
-        // res.render("login", {properties_user}); @TODO - Delete
-        res.render("login");
-
-      })
-      .catch(err => {
-        res.render("error");
-      });
+    res.render("login");
   });
   router.post("/", (req, res) => {
     const {email, password} = req.body;
@@ -38,7 +27,6 @@ module.exports = (db) => {
       const properties = results[1].rows;
       console.log("PROPERTIES", properties);
       res.render("users", {properties_user: properties, user: user})
-
       // db.query(query)
     })
     .catch(err => {

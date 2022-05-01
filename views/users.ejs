@@ -95,7 +95,7 @@
         <% for (const row of properties_user) { %>
           <div id="feed">
             <hr>
-            <article>             
+            <article>
               <h5>
                 <%= row.title %>
               </h5>
@@ -112,6 +112,8 @@
                 <%= row.street%>, <%= row.city%>, <%= row.province%>
               </p>
             </article>
+            <button type="button" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-success">Mark as sold</button>
 
           </div>
           <% } %>

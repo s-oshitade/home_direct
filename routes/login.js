@@ -19,22 +19,38 @@ module.exports = (db) => {
   });
   router.post("/", (req, res) => {
     console.log("Printing req.body", req.body)
-    let query = `
-    SELECT * FROM properties
-    LIMIT 12`;
-    console.log(query);
-    db.query(query)
-      .then(data => {
-        const properties_user = data.rows;
-        // res.json({ properties_user });
-        res.render("users", {properties_user});
+    let authValue = [req.body.email];
+    let authQuery = `SELECT * FROM users
+    WHERE email = $1`;
 
+    db.query(authQuery,authValue)
+      .then(user => {
+        const isAdmin = user.rows[0].is_admin;
+        console.log(isAdmin);
       })
       .catch(err => {
         res
           .status(500)
           .json({ error: err.message });
       });
+
+    // let query = `
+    // SELECT * FROM properties
+    // LIMIT 12`;
+    // console.log(query);
+    // db.query(query)
+    //   .then(data => {
+    //     const properties_user = data.rows;
+    //     console.log(data.rows[0])
+    //     // res.json({ properties_user });
+    //     res.render("users", {properties_user});
+
+    //   })
+    //   .catch(err => {
+    //     res
+    //       .status(500)
+    //       .json({ error: err.message });
+    //   });
   });
   return router;
 };

@@ -26,31 +26,22 @@ module.exports = (db) => {
     db.query(authQuery,authValue)
       .then(user => {
         const isAdmin = user.rows[0].is_admin;
-        console.log(isAdmin);
+
+        let query = `
+          SELECT * FROM properties
+          LIMIT 12`;
+          console.log(query);
+          db.query(query)
+            .then(data => {
+              const properties_user = data.rows;
+              res.render("users", {properties_user, admin: isAdmin});
+            })
       })
       .catch(err => {
         res
           .status(500)
           .json({ error: err.message });
       });
-
-    // let query = `
-    // SELECT * FROM properties
-    // LIMIT 12`;
-    // console.log(query);
-    // db.query(query)
-    //   .then(data => {
-    //     const properties_user = data.rows;
-    //     console.log(data.rows[0])
-    //     // res.json({ properties_user });
-    //     res.render("users", {properties_user});
-
-    //   })
-    //   .catch(err => {
-    //     res
-    //       .status(500)
-    //       .json({ error: err.message });
-    //   });
-  });
+   });
   return router;
 };

@@ -42,7 +42,6 @@ const adminRoutes = require("./routes/admin")
 const propertiesRoutes = require("./routes/properties");
 const contactRoutes = require("./routes/contact");
 const errorRoutes = require("./routes/error");
-const widgetsRoutes = require("./routes/widgets");
 const loginRoutes = require("./routes/login");
 
 // Mount all resource routes
@@ -54,7 +53,7 @@ app.use("/login", loginRoutes(db))
 app.use("/login/:userID", usersRoutes(db))
 app.use("/contact", contactRoutes());
 app.use("/error", errorRoutes());
-app.use("/api/widgets", widgetsRoutes(db));
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page

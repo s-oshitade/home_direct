@@ -89,6 +89,9 @@
       </section>
       <div>
         <h2>Check out our featured listings...</h2>
+        <div>            <% if(admin === true) { %>
+          <button type="button" class="btn btn-primary btn-lg">Add a new listing</button>
+      <%  } %></div>
       </div>
       <section class="feed">
 
@@ -109,11 +112,14 @@
                 <%= row.property_type%> | <%= row.number_of_bedrooms%> bed | <%= row.number_of_bathrooms%> bath
               </p>
               <p>
-                <%= row.street%>, <%= row.city%>, <%= row.province%>
+                <%= row.street%>, <%= row.city%>, <%= row.province%> <%= admin%>
               </p>
             </article>
-            <button type="button" class="btn btn-danger">Delete</button>
-            <button type="button" class="btn btn-success">Mark as sold</button>
+            <% if(admin === true) { %>
+              <button type="button" class="btn btn-danger">Delete</button>
+              <button type="button" class="btn btn-success">Mark as sold</button>
+          <%  } %>
+
 
           </div>
           <% } %>

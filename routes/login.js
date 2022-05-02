@@ -9,8 +9,7 @@ router.use(cookieSession({
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    let userID =  req.session.user_id
-     console.log(userID);
+    let userID =  req.session.user_id;
 
     if(userID) {
     let authValue = [userID];
@@ -26,7 +25,6 @@ module.exports = (db) => {
 
           db.query(query)
             .then(data => {
-              console.log(data.rows[0]);
               const properties_user = data.rows;
               res.render("users", {properties_user, admin: isAdmin});
             })

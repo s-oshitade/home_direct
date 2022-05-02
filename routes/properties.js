@@ -131,9 +131,24 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
 
-
-
   });
+
+  router.get("/:id", (req,res) => {
+    let value = [req.params.id];
+    let queryString = `SELECT * FROM properties
+    WHERE id = $1`;
+    db.query(queryString, value)
+      .then(data => {
+        const properties = data.rows[0];
+        console.log(data.rows[0]);
+        res.render("individualProperty", { properties });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  })
 
   return router;
 };

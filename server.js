@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 8080;
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const cookieSession = require('cookie-session');
 const morgan = require("morgan");
 

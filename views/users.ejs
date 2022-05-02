@@ -92,11 +92,10 @@
         <h2>Check out our featured listings...</h2>
         <div>
          <% if(admin === true) { %>
+          <!-- Trigger butto for the modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               Add a new listing
             </button>
-          <!-- Button trigger modal -->
-
 
             <!-- Modal to display form to add new listing-->
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -108,7 +107,7 @@
                   </div>
                   <div class="modal-body">
                     <form class="form" action="/admin/add" method="POST">
-                      <div class="form-group mb-2">
+                      <div class="form-group mb-2" style="display:flex; flex-direction:column">
                         <label for="owner_id">Owner ID:</label>
                         <input type="number" name = "owner_id" placeholder="Owner ID">  <br />
 
@@ -173,9 +172,9 @@
                 </div>
               </div>
             </div>
-    </div>
-  <% } %>
-      </div>
+          </div>
+          <% } %>
+         </div>
 
       <section class="feed">
         <% for (const row of properties_user) { %>

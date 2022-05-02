@@ -98,7 +98,7 @@ module.exports = (db) => {
           RETURNING * `;
         db.query(query, values)
           .then((data1)=> {
-            res.redirect("/");
+            res.redirect("/login");
           })
           .catch(err => {
             res
@@ -125,7 +125,7 @@ module.exports = (db) => {
     db.query(query, values)
       .then((data)=> {
         console.log("ID is = " + id);
-        res.redirect(`/admin/${id}`);
+        res.redirect(`/login`);
       })
       .catch(err => {
         res
@@ -144,8 +144,8 @@ module.exports = (db) => {
     WHERE id = $1`;
     db.query(query, values)
       .then((data)=> {
-        console.log("ID is = " + id);
-        res.redirect(`/admin/${id}`);
+        console.log("Change the status to sold ");
+        res.redirect(`/login`);
       })
       .catch(err => {
         res
@@ -157,14 +157,3 @@ module.exports = (db) => {
   return router;
 };
 
-  // Function to check if user is admin
-   async function isAdmin(id, db) {
-    //let item = false;
-    let userID = [id];
-    let userQuery = `SELECT * FROM users
-    WHERE id = $1`;
-    await db.query(userQuery,userID).then(data => {
-      console.log(data.rows[0].is_admin);
-         return data.rows[0].is_admin;
-    });
-   }

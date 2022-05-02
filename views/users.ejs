@@ -199,21 +199,21 @@
               </p>
             </article>
             <div style="display: flex; justify-content: space-between; " >
-            <% if(admin === true) { %>
-              <form method="POST" action="/admin/properties/<%= row.id %>/delete">  <!-- Form button to delete a listing-->
-                <button type="submit" class="btn btn-danger">Delete</button>
-              </form>
-              <% if(row.active ===  true) { %>
-                <form method="POST" action="/admin/properties/<%= row.id %>/sold">  <!-- Form button to mark property as sold-->
-                  <button type="submit" class="btn btn-success">Mark as sold</button>
+              <% if(admin === true) { %>
+                <form method="POST" action="/admin/properties/<%= row.id %>/delete">  <!-- Form button to delete a listing-->
+                  <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
-              <% } else {%>
-                <form method="POST" action="/admin/properties/<%= row.id %>/sold">  <!-- Form button to mark property as sold-->
-                  <button type="submit" class="btn btn-secondary">Sold</button>
-                  </form>
-              <% } %>
+                    <% if(row.active ===  true) { %>
+                      <form method="POST" action="/admin/properties/<%= row.id %>/sold">  <!-- Form button to mark property as sold-->
+                        <button type="submit" class="btn btn-success">Mark as sold</button>
+                      </form>
+                    <% } else {%>
+                      <form method="POST" action="/admin/properties/<%= row.id %>/sold">  <!-- Form button to mark property as sold-->
+                        <button type="submit" class="btn btn-secondary">Sold</button>
+                        </form>
+                    <% } %>
+                  <%  } %>
             </div>
-          <%  } %>
           </div>
           <% } %>
       </section>

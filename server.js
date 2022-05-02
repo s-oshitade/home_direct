@@ -51,6 +51,7 @@ const errorRoutes = require("./routes/error");
 const widgetsRoutes = require("./routes/widgets");
 const loginRoutes = require("./routes/login");
 const favsRoutes = require("./routes/favs");
+const smsRoutes = require("./routes/sms");
 
 // Mount all resource routes
 
@@ -62,6 +63,7 @@ app.use("/login/:userID", usersRoutes(db))
 app.use("/contact", contactRoutes(db));
 app.use("/error", errorRoutes(db));
 app.use("/favs", favsRoutes(db));
+app.use("/sms", smsRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 

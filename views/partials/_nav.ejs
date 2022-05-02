@@ -4,7 +4,11 @@
   <div class="nav-right">
     <a href="/">Home</a>
     <a href="/properties">Our Properties</a>
-    <a href="/login">Login</a>
+    <% if(admin === 'notLoggedIn') { %>
+      <a href="/login">Login</a>
+    <% } else { %>
+      <a href="/login/logout">Logout</a>
+    <% } %>
     <br>
     <a href="/contact" class="btn cta">Contact Us</a>
   </div>

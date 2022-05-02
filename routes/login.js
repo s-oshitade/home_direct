@@ -38,7 +38,6 @@ module.exports = (db) => {
   });
 
 
-
   router.post("/", (req, res) => {
 
     let authValue = [req.body.email];
@@ -57,5 +56,11 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
    });
+
+   router.get("/logout", (req, res) => {
+    req.session = null;
+    res.redirect('/login');
+   })
+
   return router;
 };

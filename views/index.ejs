@@ -26,7 +26,7 @@
 </head>
 
 <body>
-  <%- include('partials/_nav') %>
+  <%- include('partials/_nav',{admin: 'notLoggedIn'}) %>
   <div class="super-main">
     <%- include('partials/_header') %>
     <main>
@@ -94,7 +94,7 @@
         <% for (const row of featuredProperties) { %>
           <div id="feed">
             <hr>
-            <article>             
+            <article>
               <h5>
                 <%= row.title %>
               </h5>

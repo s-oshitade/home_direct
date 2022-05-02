@@ -6,8 +6,8 @@ const PORT = process.env.PORT || 8080;
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
-const morgan = require("morgan");
 const cookieSession = require('cookie-session');
+const morgan = require("morgan");
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -20,6 +20,11 @@ db.connect();
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan("dev"));
+app.use(cookieSession({
+  name: 'session',
+  keys: ["key1"],
+  maxAge: 24 * 60 * 60 * 1000 
+}));
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
@@ -44,6 +49,7 @@ const contactRoutes = require("./routes/contact");
 const errorRoutes = require("./routes/error");
 const widgetsRoutes = require("./routes/widgets");
 const loginRoutes = require("./routes/login");
+const favsRoutes = require("./routes/favs");
 
 // Mount all resource routes
 
@@ -52,8 +58,9 @@ app.use("/admin", adminRoutes(db));
 app.use("/properties", propertiesRoutes(db));
 app.use("/login", loginRoutes(db))
 app.use("/login/:userID", usersRoutes(db))
-app.use("/contact", contactRoutes());
-app.use("/error", errorRoutes());
+app.use("/contact", contactRoutes(db));
+app.use("/error", errorRoutes(db));
+app.use("/favs", favsRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
@@ -62,6 +69,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => { //62
+  // console.log(req.session.user_id);
   let query = `SELECT * FROM properties WHERE featured is TRUE LIMIT 6`;
   db.query(query)
     .then(data => {

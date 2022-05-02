@@ -49,6 +49,7 @@ const contactRoutes = require("./routes/contact");
 const errorRoutes = require("./routes/error");
 const widgetsRoutes = require("./routes/widgets");
 const loginRoutes = require("./routes/login");
+const favsRoutes = require("./routes/favs");
 
 // Mount all resource routes
 
@@ -57,8 +58,9 @@ app.use("/admin", adminRoutes(db));
 app.use("/properties", propertiesRoutes(db));
 app.use("/login", loginRoutes(db))
 app.use("/login/:userID", usersRoutes(db))
-app.use("/contact", contactRoutes());
-app.use("/error", errorRoutes());
+app.use("/contact", contactRoutes(db));
+app.use("/error", errorRoutes(db));
+app.use("/favs", favsRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
@@ -67,6 +69,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => { //62
+  // console.log(req.session.user_id);
   let query = `SELECT * FROM properties WHERE featured is TRUE LIMIT 6`;
   db.query(query)
     .then(data => {

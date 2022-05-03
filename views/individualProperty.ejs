@@ -12,20 +12,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
     integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Import Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/media.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/property.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/favorites.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-
 </head>
 
 <body>
@@ -43,8 +44,7 @@
   </nav>
   <div class="super-main">
     <main>
-      <h2>Find your next perfect place with ease!</h2>
-      <h3><%= properties.title %></h3>
+      <h1><%= properties.title %></h1>
       <div  id="property-carousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li style="width: 7vw; height: auto;" data-bs-target="#property-carousel" data-bs-slide-to="0" class="active">
@@ -63,7 +63,7 @@
             <img src=<%= properties.image_4 %> class="d-block w-100">
           </li>
         </ol>
-        <div style="z-index: -2;"class="carousel-inner">
+        <div class="carousel-inner">
           <div class="carousel-item active">
             <img src=<%= properties.cover_image_url%> class="d-block w-100" alt="...">
           </div>
@@ -96,7 +96,7 @@
     <hr>
     <%- include('partials/_footer') %>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>

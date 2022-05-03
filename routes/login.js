@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const cookieSession = require('cookie-session'); // For encrypted cookies
+const properties = require('./properties');
 
 router.use(cookieSession({
   name: 'session',
@@ -59,12 +60,28 @@ module.exports = (db) => {
 
    router.get("/favs", (req, res) => {
     let userID =  req.session.user_id;
-    console.log("PRINTING EMAIL FROM FAVS", userID);
-    let query = `SELECT * FROM properties where id IN (6, 9, 11)`; //update query to use email to lookup property ids from the favourite-properties table AS fav_properties. Then select * from properties table where property id matches the fav_properties. Probably write a subquery.
-    
+    console.log("PRINTING USER FROM FAVS - GET line 62", userID);
+    // console.log("req from line 63", req);
+    // let query = `SELECT * FROM properties
+    //             JOIN favourite_properties ON properties.id = property_id
+    //             WHERE favourite_properties.user_id = $1;
+    // `; 
+    //  let query = `SELECT * FROM properties
+    //             JOIN favourite_properties ON properties.id = favourite_properties.property_id
+    //             WHERE favourite_properties.user_id = $1;
+    // `; 
+    let query = `select property_id from favourite_properties where user_id = ${userID};`
+
+
+    // const value = [userID]
     console.log(query);
+    // db.query(query, value)
     db.query(query)
       .then(data => {
+        const prop = data.rows[0].property_id;
+        // console.log("Checking data", data.rows[0].property_id)
+        let query = `select * from properties where properties.id is IN ${prop};`
+        db.query(query).then(data)
         const properties_favs = data.rows;
         res.render('favs', {properties_favs})
       })
@@ -76,12 +93,17 @@ module.exports = (db) => {
   });
 
   router.post("/favs", (req, res) => {
-    let email = req.session.email
-    console.log("PRINTING EMAIL FROM FAVS", userID);
-    let query = `SELECT * FROM properties where id IN (6, 9, 11)`; //update query to use email to lookup property ids from the favourite-properties table AS fav_properties. Then select * from properties table where property id matches the fav_properties. Probably write a subquery.
+    let userID =  req.session.user_id;
+    // console.log("body", req.body)
+    // console.log("params", req.params)
+    const favId = req.body.favId;
+    console.log("PRINTING USER ID FROM FAVS - POST - line 80", userID);
+    let value = [userID, favId];
+    let query = `INSERT INTO favourite_properties (property_id, user_id)
+    VALUES ($1, $2);`; 
     
     console.log(query);
-    db.query(query)
+    db.query(query, value)
       .then(data => {
         const properties_favs = data.rows;
         res.render('favs', {properties_favs})
@@ -100,3 +122,7 @@ module.exports = (db) => {
 
   return router;
 };
+
+// SELECT * FROM properties
+//                 JOIN favourite_properties ON properties.id = favourite_properties.property_id
+//                 WHERE favourite_properties.user_id = $1;

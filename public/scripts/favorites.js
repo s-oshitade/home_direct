@@ -3,11 +3,12 @@
 $(() => {
   $(`i`).click((e) => {
     const favId = e.currentTarget.classList[2];
-    $.post("/login/favs").then((resp) => {
+    e.preventDefault();
+    $.post("/login/favs", {favId}).then((resp) => {
       console.log("check", $(`.${favId}`))
       $(`.${favId}`).css('color', 'tomato');
       console.log(e.currentTarget.classList[2]);
-     
+     console.log(resp);
     });
   })
 });

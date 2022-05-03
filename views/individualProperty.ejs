@@ -44,7 +44,10 @@
   </nav>
   <div class="super-main">
     <main>
+
       <h1><%= properties.title %></h1>
+
+      <!-- Display images div -->
       <div  id="property-carousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li style="width: 7vw; height: auto;" data-bs-target="#property-carousel" data-bs-slide-to="0" class="active">
@@ -82,13 +85,44 @@
         </div>
         <a class="carousel-control-prev" href="#property-carousel" role="button" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
+          <span class="sr-only  s">Previous</span>
         </a>
         <a class="carousel-control-next" href="#property-carousel" role="button" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
       </div>
+
+      <section id = "property-container">
+        <header>
+          <h1>$ <%= properties.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %> </h1>
+          <h1><i class="fa-solid fa-heart"></i> </h1>
+        </header>
+        <section>
+          <h1>Description</h1>
+          <p><%= properties.description %></p>
+
+          <h1>Property Details</h1>
+          <div class="details-container">
+            <div class="details-div-1">
+              <p><i class="fa-solid fa-house"></i> <span class="p-span">Type:</span> &nbsp;&nbsp;<%= properties.property_type %> </p>
+              <p><i class="fa-solid fa-left-right"></i> <span class="p-span">Area:</span>&nbsp;&nbsp;<%= properties.area %></p>
+              <p><i class="fa-solid fa-bed"></i> <span class="p-span">Bedroom:</span>&nbsp;&nbsp;<%= properties.number_of_bedrooms %></p>
+              <p><i class="fa-solid fa-toilet"></i> <span class="p-span">Bathroom:</span>&nbsp;&nbsp;<%= properties.number_of_bathrooms %></p>
+            </div>
+            <div class="details-div-2">
+              <p><i class="fa-solid fa-hashtag"></i> <span class="p-span">Listing ID:</span>&nbsp;&nbsp;1234-<%= properties.id %></p>
+              <p><i class="fa-solid fa-location-dot"></i> <span class="p-span">Address:</span>&nbsp;&nbsp;<%= properties.street%>, <%= properties.city%>, <%= properties.province%> <%= properties.property_id %></p>
+              <p><i class="fa-solid fa-calendar-days"></i> <span class="p-span">Listing Date:</span>&nbsp;&nbsp;<%= properties.listing_date.toString().slice(3, 15) %> </p>
+            </div>
+          </div>
+
+        </section>
+        <footer>
+
+        </footer>
+
+      </section>
 
 
 

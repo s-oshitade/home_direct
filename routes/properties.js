@@ -131,9 +131,27 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
 
-
-
   });
+
+  router.get("/:id", (req,res) => {
+    let value = [req.params.id];
+    let queryString = `SELECT properties.*, images.image_url_1 as image_1, images.image_url_2 as image_2,
+    images.image_url_3 as image_3, images.image_url_4 as image_4
+    FROM properties
+    JOIN images ON images.property_id = properties.id
+    WHERE properties.id = $1`;
+    db.query(queryString, value)
+      .then(data => {
+        const properties = data.rows[0];
+        console.log(data.rows[0]);
+        res.render("individualProperty", { properties });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  })
 
   return router;
 };

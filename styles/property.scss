@@ -1,18 +1,55 @@
 @import "variables";
 
-.carousel-inner {
-  z-index: -2;
-}
-
-.carousel-control-next{
-  z-index: -2;
-}
-
-.carousel-control-prev {
-  z-index: -2;
-}
-
 main {
   padding-top: 3vw;
 }
 
+h1 {
+  margin-bottom: 2vw;
+  font-weight: bolder;
+}
+
+nav {
+  z-index: 4;
+}
+
+.carousel-inner {
+  z-index: -1;
+}
+
+.p-span {
+  font-weight: bold;
+  color: #406882;
+}
+
+#property-container {
+  margin-top: 2vw;
+  section {
+    h1 {
+      color: #406882;
+    }
+  }
+  .details-container {
+    display: flex;
+    justify-content: space-between;
+    i {
+      margin-right: 1vw;
+    }
+    div {
+      flex-basis: 50%;
+    }
+  }
+
+  .details-div-1 {
+    border-right: 2px solid darkgrey;
+  }
+  .details-div-2 {
+    padding-left: 1vw;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+}

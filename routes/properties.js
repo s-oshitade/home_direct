@@ -1,27 +1,28 @@
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
-const {propertySearch} = require('../helpers/property_search');
+const { propertySearch } = require('../helpers/property_search');
 
 module.exports = (db) => {
 
   // Fetch all the properties from the database
-  router.get("/", (req, res) => {
-    let queryString = `SELECT properties.*, images.*,users.* FROM properties
-    JOIN images ON properties.id = images.property_id
-    JOIN users ON users.id = properties.owner_id;`;
-    db.query(queryString)
-      .then(data => {
-        const properties = data.rows;
+ // Fetch all the properties from the database
+ router.get("/", (req, res) => {
+  let queryString = `SELECT properties.*, images.*,users.* FROM properties
+  JOIN images ON properties.id = images.property_id
+  JOIN users ON users.id = properties.owner_id;`;
+  db.query(queryString)
+    .then(data => {
+      const properties = data.rows;
 
-        res.render("properties", { properties });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  });
+      res.render("properties", { properties });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
 
   router.get("/search", (req, res) => {
     propertySearch(req.query, db).then(data => {
@@ -34,9 +35,9 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
-  
+
   // users messages to the property owners
-  router.post("/properties/:id/message", (req, res) => {
+  router.post("/:id/message", (req, res) => {
     const { message } = req.body
     const userEmail = req.body.email
     const queryParam = [req.params.id];
@@ -84,17 +85,21 @@ module.exports = (db) => {
 
   });
 
-  router.get("/:id", (req,res) => {
+  router.get("/:id", (req, res) => {
     let value = [req.params.id];
+    console.log(req.params.id)
     let queryString = `SELECT properties.*, images.image_url_1 as image_1, images.image_url_2 as image_2,
-    images.image_url_3 as image_3, images.image_url_4 as image_4
+    images.image_url_3 as image_3, images.image_url_4 as image_4, users.name, users.email
     FROM properties
     JOIN images ON images.property_id = properties.id
+    JOIN users ON users.id = properties.owner_id
     WHERE properties.id = $1`;
+
     db.query(queryString, value)
       .then(data => {
-        const properties = data.rows[0];
-        console.log(data.rows[0]);
+        const properties= data.rows[0];
+
+        console.log(data.rows);
         res.render("individualProperty", { properties });
       })
       .catch(err => {

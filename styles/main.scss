@@ -18,6 +18,7 @@ main {
   .feed {
     display: flex;
     flex-direction: column;
+    cursor: pointer;
     img {
       width: 670px;
       height: 500px;

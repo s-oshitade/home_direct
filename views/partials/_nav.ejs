@@ -1,16 +1,28 @@
+
 <nav>
   <img src="https://github.com/s-oshitade/home-direct/blob/frontend/docs/logo.png?raw=true" alt="logo">
   <i id="burger" class="fa-solid fa-bars"></i>
   <div class="nav-right">
-    <a href="/">Home</a>
-    <a href="/properties">Our Properties</a>
+    <ul>
+      <a href="/">Home</a>
+    </ul>
+    <ul>
+      <a href="/properties">Our Properties</a>
+    </ul>
     <% if(admin === 'notLoggedIn') { %>
-      <a href="/login">Login</a>
+      <ul>
+        <a href="/login">Login</a>
+      </ul>
     <% } else { %>
-      <a href="/login/favs">My Favs</a>
-      <a href="/login/logout">Logout</a>
+      <ul>
+        <a href="/login/favs">My Favs</a>
+      </ul>
+      <ul>
+        <a href="/login/logout">Logout</a>
+      </ul>
     <% } %>
-    <br>
-    <a href="/contact" class="btn cta">Contact Us</a>
+    <ul>
+      <a href="/contact" class="btn cta">Contact Us</a>
+    </ul>
   </div>
 </nav>

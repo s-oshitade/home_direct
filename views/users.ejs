@@ -127,10 +127,10 @@
           <div id="feed">
             <hr>
             <article>
-              <h5  class= "<%= row.id %> open-property">
+              <h5  class= "1-<%= row.id %> open-property">
                 <%= row.title %>
               </h5>
-              <img  class="<%= row.id %> property-image open-property" src=<%=row.cover_image_url %>>
+              <img  class="1-<%= row.id %> property-image open-property" src=<%=row.cover_image_url %>>
               <div>
                 <spam>$ <%= row.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %>
                 </spam>

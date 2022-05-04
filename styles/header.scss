@@ -2,7 +2,12 @@ header {
   margin: auto;
   font-size: 0.75rem;
   font: cursive;
-  img {
-    width: 100%;
-  }
+  padding-top: 2.5%;
+}
+.carousal-header {
+  font-size: 10em;
+  padding-bottom: 30%;
+}
+.carousel-inner {
+  z-index: -1;
 }

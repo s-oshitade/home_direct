@@ -44,10 +44,14 @@ main {
   form {
     margin: auto;
     margin-top: 40%;
-  
-  }    
+
+  }
   .text-muted {
       font-size: x-small;
       bottom: 5px;
     }
+}
+#feed:hover {
+  transform: scale(1.03);
+  box-shadow: #406882 0px 10px 10px -10px;
 }

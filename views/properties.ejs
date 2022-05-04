@@ -4,7 +4,7 @@
 <head>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <title>HomeDirect | Properties</title>
+  <title>HDirect - LoggedIn</title>
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,230 +18,75 @@
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/media.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/favorites.js"></script>
+  <script type="text/javascript" src="/scripts/property.js"></script>
   <script type="text/javascript" src="/scripts/search-error-message.js"></script>
-  <script type="text/javascript" src="/scripts/owner-message.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <style>
-    /* prev and next butttons */
-    .img-btn {
-      display: flex;
-      justify-content: space-between;
-    }
-
-
-    #gallery img {
-      max-width: 13vw;
-      border: 1px solid #000
-    }
-
-    /* error message from search bar? */
-    .error-message {
-      display: none;
-      text-align: center;
-      border: 2px solid rgb(11, 0, 0);
-      margin-left: 91px;
-      color: rgb(186, 171, 171);
-      padding: 8px;
-      margin-right: 46px;
-      margin-top: 100px;
-    }
-
-    /* property owner message form */
-    .user-form{
-      display: none;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .brand {
-      text-align: center;
-    }
-
-    .brand span {
-      color: #fff;
-    }
-
-    .wrapper {
-      box-shadow: 0 0 20px 0 rgba(72, 94, 116, 0.7);
-    }
-
-    .wrapper>* {
-      padding: 1em;
-    }
-
-    .company-info {
-      /* display: none; */
-      background: #c9e6ff;
-    }
-
-    .company-info h3,
-    .company-info ul {
-      text-align: center;
-      margin: 0 0 1rem 0;
-    }
-
-    .contact {
-      background: #f9feff;
-    }
-
-    .contact form {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 20px;
-    }
-
-    .contact form label {
-      display: block;
-    }
-
-    .contact form p {
-      margin: 0;
-    }
-
-    .contact form .full {
-      grid-column: 1 / 3;
-    }
-
-    .contact form button,
-    .contact form input,
-    .contact form textarea {
-      width: 100%;
-      padding: 1em;
-      border: 1px solid #c9e6ff;
-    }
-
-    .contact form button {
-      background: #c9e6ff;
-      border: 0;
-      text-transform: uppercase;
-    }
-
-    .contact form button:hover,
-    .contact form button:focus {
-      background: #92bde7;
-      color: #fff;
-      outline: 0;
-      transition: background-color 2s ease-out;
-    }
-  </style>
 </head>
 
 <body>
-  <nav>
-    <img src="https://github.com/s-oshitade/home-direct/blob/frontend/docs/logo.png?raw=true" alt="logo">
-    <div class="navRight">
-      <strong>Home</strong>
-      Our Properties
-      Login/ Sign Up
-      Contact Us
-    </div>
-  </nav>
-  <header>
-    <h1>This is the header</h1>
-  </header>
-  <main class="container">
-    <section class="properties">
-      <% for (const row of properties) { %>
-        <div>
-          <h2>
-            <%= row.title %>
-          </h2>
-          <img class="main-image" src=<%=row.cover_image_url %>>
-          <div id="gallery">
-            <img src=<%=row.image_url_1 %>>
 
-            <img src=<%=row.image_url_2 %>>
+  <%- include('partials/_nav',{admin: 'notLoggedIn'}) %>
+  <div class="super-main">
 
-            <img src=<%=row.image_url_3 %>>
+    <main>
+      <h2>Find your next perfect place with ease!</h2>
 
-            <img src=<%=row.image_url_4 %>>
-          </div>
-
-          <div class="img-btn">
-            <button id="button-previous" type="button" class="btn btn-light">prev</button>
-            <button id="button-next" type="button" class="btn btn-light">next</button>
-          </div>
-          <div>
-            <div class="owner_message">
-              <span> Send a message to the owner</span>
-              <button type="button" class="owner-message">Send Message</button>
-
-              <div class="user-form">
-                <div class="company-info">
-
-                  <ul>
-                    <li><i class="fa fa-user" aria-hidden="true"></i>
-                      <%= row.name %>
-                    </li>
-                    <li><i class="fa fa-phone"></i> (555) 555-5555</li>
-                    <li><i class="fa fa-envelope"></i>
-                      <%= row.email %>
-                    </li>
-                  </ul>
-                </div>
-                <div class="contact">
-                  <h3>Send Email</h3>
-
-                  <form method="POST" action="/properties/<%= row.property_id%>/message">
-                    <p>
-                      <label>Name</label>
-                      <input type="text" name="name">
-                    </p>
-
-                    <p>
-                      <label>Email Address</label>
-                      <input type="email" name="email">
-                    </p>
-
-                    <p class="full">
-                      <label>Message</label>
-                      <textarea name="message" rows="5"></textarea>
-                    </p>
-                    <p class="full">
-                      <button type="submit">Submit</button>
-                    </p>
-                  </form>
-                </div>
+      <%- include('partials/_search') %>
+      <div>
+        <h2>Check out our properties...</h2>
+        <div id="error-message" style="display: none;" >
+          <p class="error-type"></p>
+        </div>
+      </div>
+      <section class="feed">
+        <% for (const row of properties) { %>
+          <div id="feed">
+            <hr>
+            <article>
+              <h5  class= "<%= row.property_id %> open-property">
+                <%= row.title %>
+              </h5>
+              <img  class="<%= row.property_id %> property-image open-property" src=<%=row.cover_image_url %>>
+              <div>
+                <spam>$ <%= row.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %>
+                </spam>
+                <i class="fa-solid fa-heart <%= row.property_id %>"></i>
               </div>
-              <div class="property-information">
-              <spam>Price: $ <%= row.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %>
-                  <p>Address:
-                    <%= row.street%>, <%= row.city%>, <%= row.province%>, <%= row.post_code%>
-                  </p>
+              <p>
+                <%= row.property_type%> | <%= row.number_of_bedrooms%> bed | <%= row.number_of_bathrooms%> bath
+              </p>
+              <p>
+                <%= row.street%>, <%= row.city%>, <%= row.province%> <%= row.property_id %>
+              </p>
+            </article>
 
-                    <p>Building Type: <%= row.property_type%>
-                    </p>
-                    <p>Area: <%= row.area%>
-                    </p>
-                    <p>Number of Bedrooms: <%= row.number_of_bedrooms%>
-                    </p>
-                    <p>Number of Bathrooms: <%= row.number_of_bathrooms%>
-                    </p>
-                    <p>PROPERTY INFORMATION: </p>
-                    <p>
-                      <%= row.description %>
-                    </p>
-                    <p>Listed At <%= row.listing_date.toLocaleDateString()%>
-                    </p>
+          </div>
+          <% } %>
 
-                  </div>
-                  <% } %>
-            </div>
-            <div class="error-message">
-              <p class="error-type"></p>
-            </div>
-    </section>
-  </main>
-  <footer>
-    <h1>This is the footer</h1>
+      </section>
+    </main>
+    <hr>
+    <%- include('partials/_footer') %>
+  </div>
 
-  </footer>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+

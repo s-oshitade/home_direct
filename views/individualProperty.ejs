@@ -14,7 +14,8 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Import Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
@@ -27,6 +28,8 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/favorites.js"></script>
+  <script type="text/javascript" src="/scripts/owner-message.js"></script>
+
 </head>
 
 <body>
@@ -45,42 +48,44 @@
   <div class="super-main">
     <main>
 
-      <h1><%= properties.title %></h1>
+      <h1>
+        <%= properties.title %>
+      </h1>
 
       <!-- Display images div -->
-      <div  id="property-carousel" class="carousel slide" data-ride="carousel">
+      <div id="property-carousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li style="width: 7vw; height: auto;" data-bs-target="#property-carousel" data-bs-slide-to="0" class="active">
-            <img  src=<%= properties.cover_image_url%> class="d-block w-100">
+            <img src=<%=properties.cover_image_url%> class="d-block w-100">
           </li>
           <li style="width: 7vw; height: auto;" data-bs-target="#property-carousel" data-bs-slide-to="1">
-            <img src=<%= properties.image_1 %> class="d-block w-100">
+            <img src=<%=properties.image_1 %> class="d-block w-100">
           </li>
           <li style="width: 7vw; height: auto;" data-bs-target="#property-carousel" data-bs-slide-to="2">
-            <img src=<%= properties.image_2 %> class="d-block w-100">
+            <img src=<%=properties.image_2 %> class="d-block w-100">
           </li>
           <li style="width: 7vw; height: auto;" data-bs-target="#property-carousel" data-bs-slide-to="3">
-            <img src=<%= properties.image_3 %> class="d-block w-100">
+            <img src=<%=properties.image_3 %> class="d-block w-100">
           </li>
           <li style="width: 7vw; height: auto;" data-bs-target="#property-carousel" data-bs-slide-to="4">
-            <img src=<%= properties.image_4 %> class="d-block w-100">
+            <img src=<%=properties.image_4 %> class="d-block w-100">
           </li>
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src=<%= properties.cover_image_url%> class="d-block w-100" alt="...">
+            <img src=<%=properties.cover_image_url%> class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src=<%= properties.image_1 %> class="d-block w-100" alt="...">
+            <img src=<%=properties.image_1 %> class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src=<%= properties.image_2 %> class="d-block w-100" alt="...">
+            <img src=<%=properties.image_2 %> class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src=<%= properties.image_3 %> class="d-block w-100" alt="...">
+            <img src=<%=properties.image_3 %> class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src=<%= properties.image_4 %> class="d-block w-100" alt="...">
+            <img src=<%=properties.image_4 %> class="d-block w-100" alt="...">
           </div>
         </div>
         <a class="carousel-control-prev" href="#property-carousel" role="button" data-bs-slide="prev">
@@ -93,29 +98,89 @@
         </a>
       </div>
 
-      <section id = "property-container">
+      <section id="property-container">
         <header>
-          <h1>$ <%= properties.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %> </h1>
+          <h1>$ <%= properties.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %>
+          </h1>
           <h1><i class="fa-solid fa-heart"></i> </h1>
         </header>
         <section>
           <h1>Description</h1>
-          <p><%= properties.description %></p>
+          <p>
+            <%= properties.description %>
+          </p>
 
           <h1>Property Details</h1>
           <div class="details-container">
             <div class="details-div-1">
-              <p><i class="fa-solid fa-house"></i> <span class="p-span">Type:</span> &nbsp;&nbsp;<%= properties.property_type %> </p>
-              <p><i class="fa-solid fa-left-right"></i> <span class="p-span">Area:</span>&nbsp;&nbsp;<%= properties.area %></p>
-              <p><i class="fa-solid fa-bed"></i> <span class="p-span">Bedroom:</span>&nbsp;&nbsp;<%= properties.number_of_bedrooms %></p>
-              <p><i class="fa-solid fa-toilet"></i> <span class="p-span">Bathroom:</span>&nbsp;&nbsp;<%= properties.number_of_bathrooms %></p>
+              <p><i class="fa-solid fa-house"></i> <span class="p-span">Type:</span> &nbsp;&nbsp;<%=
+                  properties.property_type %>
+              </p>
+              <p><i class="fa-solid fa-left-right"></i> <span class="p-span">Area:</span>&nbsp;&nbsp;<%= properties.area
+                  %>
+              </p>
+              <p><i class="fa-solid fa-bed"></i> <span class="p-span">Bedroom:</span>&nbsp;&nbsp;<%=
+                  properties.number_of_bedrooms %>
+              </p>
+              <p><i class="fa-solid fa-toilet"></i> <span class="p-span">Bathroom:</span>&nbsp;&nbsp;<%=
+                  properties.number_of_bathrooms %>
+              </p>
             </div>
             <div class="details-div-2">
-              <p><i class="fa-solid fa-hashtag"></i> <span class="p-span">Listing ID:</span>&nbsp;&nbsp;1234-<%= properties.id %></p>
-              <p><i class="fa-solid fa-location-dot"></i> <span class="p-span">Address:</span>&nbsp;&nbsp;<%= properties.street%>, <%= properties.city%>, <%= properties.province%> <%= properties.property_id %></p>
-              <p><i class="fa-solid fa-calendar-days"></i> <span class="p-span">Listing Date:</span>&nbsp;&nbsp;<%= properties.listing_date.toString().slice(3, 15) %> </p>
+              <p><i class="fa-solid fa-hashtag"></i> <span class="p-span">Listing ID:</span>&nbsp;&nbsp;1234-<%=
+                  properties.id %>
+              </p>
+              <p><i class="fa-solid fa-location-dot"></i> <span class="p-span">Address:</span>&nbsp;&nbsp;<%=
+                  properties.street%>, <%= properties.city%>, <%= properties.province%>
+                      <%= properties.property_id %>
+              </p>
+              <p><i class="fa-solid fa-calendar-days"></i> <span class="p-span">Listing Date:</span>&nbsp;&nbsp;<%=
+                  properties.listing_date.toString().slice(3, 15) %>
+              </p>
             </div>
           </div>
+          <div class="owner_message">
+            <div class="send-message">
+              <span> Send a message to the owner</span>
+              <button type="button" class="owner-message">Send Message</button>
+            </div>
+            <div class="user-form">
+              <div class="company-info">
+
+                <ul>
+                  <li><i class="fa fa-user" aria-hidden="true"></i>
+                    <%= properties.name %>
+                  </li>
+                  <li><i class="fa fa-phone"></i> (555) 555-5555</li>
+                  <li><i class="fa fa-envelope"></i>
+                    <%= properties.email %>
+                  </li>
+                </ul>
+              </div>
+              <div class="contact">
+                <h3>Send Email</h3>
+
+                <form method="POST" action="/properties/<%= properties.id%>/message">
+                  <p>
+                    <label>Name</label>
+                    <input type="text" name="name">
+                  </p>
+
+                  <p>
+                    <label>Email Address</label>
+                    <input type="email" name="email">
+                  </p>
+
+                  <p class="full">
+                    <label>Message</label>
+                    <textarea name="message" rows="5"></textarea>
+                  </p>
+                  <p class="full">
+                    <button type="submit">Submit</button>
+                  </p>
+                </form>
+              </div>
+            </div>
 
         </section>
         <footer>
@@ -130,8 +195,9 @@
     <hr>
     <%- include('partials/_footer') %>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
-

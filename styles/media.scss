@@ -68,12 +68,12 @@ main {
     max-width: 1024px;
     margin: 0 auto;
   }
-  
+
   main {
     .feed {
-      flex-direction: row-reverse;
+      // flex-direction: row-reverse;
       flex-wrap: wrap;
-      justify-content: space-between;
+      // justify-content: space-between;
       font-size: small;
       img {
         width: 320px;
@@ -87,7 +87,7 @@ main {
     background-color: white;
     color: #545149;
   }
-  
+
 
 
 }

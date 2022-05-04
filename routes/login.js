@@ -21,8 +21,7 @@ module.exports = (db) => {
       .then(user => {
         const isAdmin = user.rows[0].is_admin;
         let query = `
-          SELECT * FROM properties
-          LIMIT 12`;
+          SELECT * FROM properties`;
 
           db.query(query)
             .then(data => {
@@ -100,41 +99,6 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
-
-  //CHECKING OUT ALTERNATIVE SYNTAX FOR RENDERING FAVS GET ROUTE
-  // router.get("/favs", (req, res) => {
-  //   let userID =  req.session.user_id;
-  //   console.log("PRINTING USER FROM FAVS - GET line 62", userID);
-  //   // console.log("req from line 63", req);
-  //   // let query = `SELECT * FROM properties
-  //   //             JOIN favourite_properties ON properties.id = property_id
-  //   //             WHERE favourite_properties.user_id = $1;
-  //   // `; 
-  //    let query = `SELECT * FROM properties
-  //               JOIN favourite_properties ON properties.id = favourite_properties.property_id
-  //               WHERE favourite_properties.user_id = $1;
-  //   `; 
-  //   // let query = `select property_id from favourite_properties where user_id = ${userID};`
-
-
-  //   const value = [userID]
-  //   // console.log(query);
-  //   // db.query(query)
-  //   db.query(query, value)
-  //     .then(data => {
-  //       const prop = data.rows[0].property_id;
-  //       // console.log("Checking data", data.rows[0].property_id)
-  //       // let query = `select * from properties where properties.id is IN ${prop};`
-  //       // db.query(query).then(data)
-  //       const properties_favs = data.rows;
-  //       res.render('favs', {properties_favs})
-  //     })
-  //     .catch(err => {
-  //       res
-  //         .status(500)
-  //         .json({ error: err.message });
-  //     });
-  // });
    router.get("/logout", (req, res) => {
     req.session = null;
     res.redirect('/login');

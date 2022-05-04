@@ -54,7 +54,7 @@ const cookieSession = require('cookie-session'); // For encrypted cookies
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    let query = `SELECT * FROM properties LIMIT 12`;
+    let query = `SELECT * FROM properties;`;
     console.log(query);
     db.query(query)
       .then(data => {

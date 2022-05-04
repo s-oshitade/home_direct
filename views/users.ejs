@@ -26,291 +26,192 @@
   <script type="text/javascript" src="/scripts/favorites.js"></script>
   <script type="text/javascript" src="/scripts/property.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <style>
 
-ul{
-  list-style: none;
-  padding:0;
-}
-
-.brand{
-  text-align: center;
-}
-
-.brand span{
-  color:#fff;
-}
-
-.wrapper{
-  box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
-}
-
-.wrapper > *{
-  padding: 1em;
-}
-
-.company-info{
-  background:#c9e6ff;
-}
-
-.company-info h3, .company-info ul{
-  text-align: center;
-  margin:0 0 1rem 0;
-}
-
-.contact{
-  background:#f9feff;
-}
-
-/* FORM STYLES */
-.contact form{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap:20px;
-}
-
-.contact form label{
-  display:block;
-}
-
-.contact form p{
-  margin:0;
-}
-
-.contact form .full{
-  grid-column: 1 / 3;
-}
-
-.contact form button, .contact form input, .contact form textarea{
-  width:100%;
-  padding:1em;
-  border:1px solid #c9e6ff;
-}
-
-.contact form button{
-  background:#c9e6ff;
-  border:0;
-  text-transform: uppercase;
-}
-
-.contact form button:hover,.contact form button:focus{
-  background:#92bde7;
-  color:#fff;
-  outline:0;
-  transition: background-color 2s ease-out;
-}
-  </style>
 </head>
 
 <body>
   <%- include('partials/_nav') %>
 
-  <div class="super-main">
-    <main>
+    <div class="super-main">
+      <main>
 
-      <h2>Find your next perfect place with ease!</h2>
-      <%- include('partials/_search') %>
-      <div>
-        <h2>Check out our featured listings...</h2>
-        <div>
-         <% if(admin === true) { %>
-          <!-- Trigger butto for the modal -->
+        <h2>Find your next perfect place with ease!</h2>
+        <%- include('partials/_search') %>
+          <div>
+            <h2>Check out our featured listings...</h2>
+            <div>
+              <% if(admin===true) { %>
+                <!-- Trigger butto for the modal -->
 
-          <div class="admin-messsage" style="display: none;">
-              <div class="company-info">
-                <h3>HOME DIRECT</h3>
-                <ul>
-                  <li><i class="fa fa-road"></i> 555 homedirect ave</li>
-                  <li><i class="fa fa-phone"></i> (555) 555-5555</li>
-                  <li><i class="fa fa-envelope"></i> homedirect@gmail.com</li>
-                </ul>
-              </div>
-              <div class="contact">
-                <form method="POST" action="/admin/message">
 
-                  <p>
-                    <label>To</label>
-                    <input type="email" name="email">
-                  </p>
-                  <p>
-                    <label>Subject</label>
-                    <input type="text" name="subject">
-                  </p>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  Add a new listing
+                </button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                  Send Email
+                </button>
 
-                  <p class="full">
-                    <label>Message</label>
-                    <textarea name="message" rows="5"></textarea>
-                  </p>
-                  <p class="full">
-                    <button type="submit">Submit</button>
-                  </p>
-                </form>
-              </div>
-            </div>
-          </div>
-
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-              Add a new listing
-            </button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
-              Send Email
-            </button>
-            <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdrop1Label">Email from Admin</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <form class="form" action="/admin/message" method="POST">
-                      <div class="form-group mb-2" style="display:flex; flex-direction:column">
-                        <label for="email">To:</label>
-                        <input type="email" name = "email" placeholder="example@mail.com">  <br />
-
-                        <label for="text">Subject</label>
-                        <input type="text" name = "subject"  placeholder = "Subject">  <br />
-
-                        <label for="messsage">message</label>
-                        <textarea name="message" rows="5"></textarea>
+                <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false"
+                  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdrop1Label">Email from Admin</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary">Send</button>
-                    </div>
-                  </form>
-                  </div>
-                </div>
-              </div>
+                      <div class="modal-body">
+                        <form class="form" action="/admin/message" method="POST">
+                          <div class="form-group mb-2" style="display:flex; flex-direction:column">
+                            <label for="email">To:</label>
+                            <input type="email" name="email" placeholder="example@mail.com"> <br />
 
+                            <label for="text">Subject</label>
+                            <input type="text" name="subject" placeholder="Subject"> <br />
 
-            <!-- Modal to display form to add new listing-->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <form class="form" action="/admin/add" method="POST">
-                      <div class="form-group mb-2" style="display:flex; flex-direction:column">
-                        <label for="owner_id">Owner Email:</label>
-                        <input type="email" name = "email" placeholder="example@mail.com">  <br />
-
-                        <label for="title">Title:</label>
-                        <input type="text" name = "title"  placeholder = "Title">  <br />
-
-                        <label for="description">Description:</label>
-                        <input type="text" name = "description"  placeholder = "description">  <br />
-
-                        <label for="area">Area: </label>
-                        <input type="text" name = "area" placeholder= "Area" > <br />
-
-                        <label for="property_type">Property Type: </label>
-                        <input type="text" name = "property_type" placeholder= "Property Type" > <br />
-
-                        <label for="number_of_bathrooms">Number of Bathrooms: </label>
-                        <input type="number" name = "number_of_bathrooms" placeholder= "Number of Bathrooms" > <br/>
-
-                        <label for="number_of_bedrooms">Number of Bedrooms </label>
-                        <input type="number" name = "number_of_bedrooms" placeholder= "Number of Bedrooms" > <br/>
-
-
-                        <label for="cover_image_url">Image URL</label>
-                        <input type="text" name = "cover_image_url" placeholder= "Image URL" > <br/>
-
-                        <label for="country"> Country: </label>
-                        <input type="text" name = "country" placeholder= "Country" > <br/>
-
-                        <label for="city">City: </label>
-                        <input type="text" name = "city" placeholder= "city" > <br/>
-
-                        <label for="street">Street: </label>
-                        <input type="text" name = "street" placeholder= "street" > <br/>
-
-                        <label for="province">Province: </label>
-                        <input type="text" name = "province" placeholder= "province" > <br/>
-
-                        <label for="post_code">Postal Code:  </label>
-                        <input type="text" name = "post_code" placeholder= "post code" > <br/>
-
-                        <label for="price"> </label>
-                        <input type="number" name = "price" placeholder= "price" > <br/>
-
-                        <label for="listing_date"> Listing Date:  </label>
-                        <input type="date" name = "listing_date" placeholder= "Listing Date" > <br/> <br/>
-
-                        <label for="image_url_1">Image 1:  </label>
-                        <input type="text" name = "image_url_1" placeholder= "Image 1" > <br/>
-                        <label for="image_url_1">Image 2: </label>
-                        <input type="text" name = "image_url_2" placeholder= "Image 2" > <br/>
-                        <label for="image_url_3">Image 3: </label>
-                        <input type="text" name = "image_url_3" placeholder= "Image 3" > <br/>
-                        <label for="image_url_4">Image 4: </label>
-                        <input type="text" name = "image_url_4" placeholder= "Image 4" > <br/>
+                            <label for="messsage">message</label>
+                            <textarea name="message" rows="5"></textarea>
+                          </div>
                       </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </div>
-                </form>
-                </div>
-              </div>
-            </div>
-
-          <% } %>
-         </div>
-
-      <section class="feed">
-        <% for (const row of properties_user) { %>
-          <div id="feed">
-            <hr>
-            <article>
-              <h5  class= "1-<%= row.id %> open-property">
-                <%= row.title %>
-              </h5>
-              <img  class="1-<%= row.id %> property-image open-property" src=<%=row.cover_image_url %>>
-              <div>
-                <spam>$ <%= row.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %>
-                </spam>
-                <i class="fa-solid fa-heart <%= row.id %>"></i>
-              </div>
-              <p>
-                <%= row.property_type%> | <%= row.number_of_bedrooms%> bed | <%= row.number_of_bathrooms%> bath
-              </p>
-              <p>
-                <%= row.street%>, <%= row.city%>, <%= row.province%> <%= row.property_id %>
-              </p>
-            </article>
-            <div style="display: flex; justify-content: space-between; " >
-              <% if(admin === true) { %>
-                <form method="POST" action="/admin/properties/<%= row.id %>/delete">  <!-- Form button to delete a listing-->
-                  <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-                    <% if(row.active ===  true) { %>
-                      <form method="POST" action="/admin/properties/<%= row.id %>/sold">  <!-- Form button to mark property as sold-->
-                        <button type="submit" class="btn btn-success">Mark as sold</button>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                      </div>
                       </form>
-                    <% } else {%>
-                      <form method="POST" action="/admin/properties/<%= row.id %>/sold">  <!-- Form button to mark property as sold-->
-                        <button type="submit" class="btn btn-secondary">Sold</button>
-                        </form>
-                    <% } %>
-                  <%  } %>
-            </div>
-          </div>
-          <% } %>
-      </section>
+                    </div>
+                  </div>
+                </div>
 
-    </main>
-    <hr>
-    <%- include('partials/_footer') %>
-  </div>
+
+                <!-- Modal to display form to add new listing-->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form class="form" action="/admin/add" method="POST">
+                          <div class="form-group mb-2" style="display:flex; flex-direction:column">
+                            <label for="owner_id">Owner Email:</label>
+                            <input type="email" name="email" placeholder="example@mail.com"> <br />
+
+                            <label for="title">Title:</label>
+                            <input type="text" name="title" placeholder="Title"> <br />
+
+                            <label for="description">Description:</label>
+                            <input type="text" name="description" placeholder="description"> <br />
+
+                            <label for="area">Area: </label>
+                            <input type="text" name="area" placeholder="Area"> <br />
+
+                            <label for="property_type">Property Type: </label>
+                            <input type="text" name="property_type" placeholder="Property Type"> <br />
+
+                            <label for="number_of_bathrooms">Number of Bathrooms: </label>
+                            <input type="number" name="number_of_bathrooms" placeholder="Number of Bathrooms"> <br />
+
+                            <label for="number_of_bedrooms">Number of Bedrooms </label>
+                            <input type="number" name="number_of_bedrooms" placeholder="Number of Bedrooms"> <br />
+
+
+                            <label for="cover_image_url">Image URL</label>
+                            <input type="text" name="cover_image_url" placeholder="Image URL"> <br />
+
+                            <label for="country"> Country: </label>
+                            <input type="text" name="country" placeholder="Country"> <br />
+
+                            <label for="city">City: </label>
+                            <input type="text" name="city" placeholder="city"> <br />
+
+                            <label for="street">Street: </label>
+                            <input type="text" name="street" placeholder="street"> <br />
+
+                            <label for="province">Province: </label>
+                            <input type="text" name="province" placeholder="province"> <br />
+
+                            <label for="post_code">Postal Code: </label>
+                            <input type="text" name="post_code" placeholder="post code"> <br />
+
+                            <label for="price"> </label>
+                            <input type="number" name="price" placeholder="price"> <br />
+
+                            <label for="listing_date"> Listing Date: </label>
+                            <input type="date" name="listing_date" placeholder="Listing Date"> <br /> <br />
+
+                            <label for="image_url_1">Image 1: </label>
+                            <input type="text" name="image_url_1" placeholder="Image 1"> <br />
+                            <label for="image_url_1">Image 2: </label>
+                            <input type="text" name="image_url_2" placeholder="Image 2"> <br />
+                            <label for="image_url_3">Image 3: </label>
+                            <input type="text" name="image_url_3" placeholder="Image 3"> <br />
+                            <label for="image_url_4">Image 4: </label>
+                            <input type="text" name="image_url_4" placeholder="Image 4"> <br />
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <% } %>
+            </div>
+
+            <section class="feed">
+              <% for (const row of properties_user) { %>
+                <div id="feed">
+                  <hr>
+                  <article>
+                    <h5 class="1-<%= row.id %> open-property">
+                      <%= row.title %>
+                    </h5>
+                    <img class="1-<%= row.id %> property-image open-property" src=<%=row.cover_image_url %>>
+                    <div>
+                      <spam>$ <%= row.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %>
+                      </spam>
+                      <i class="fa-solid fa-heart <%= row.id %>"></i>
+                    </div>
+                    <p>
+                      <%= row.property_type%> | <%= row.number_of_bedrooms%> bed | <%= row.number_of_bathrooms%> bath
+                    </p>
+                    <p>
+                      <%= row.street%>, <%= row.city%>, <%= row.province%>
+                            <%= row.property_id %>
+                    </p>
+                  </article>
+                  <div style="display: flex; justify-content: space-between; ">
+                    <% if(admin===true) { %>
+                      <form method="POST" action="/admin/properties/<%= row.id %>/delete">
+                        <!-- Form button to delete a listing-->
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                      </form>
+                      <% if(row.active===true) { %>
+                        <form method="POST" action="/admin/properties/<%= row.id %>/sold">
+                          <!-- Form button to mark property as sold-->
+                          <button type="submit" class="btn btn-success">Mark as sold</button>
+                        </form>
+                        <% } else {%>
+                          <form method="POST" action="/admin/properties/<%= row.id %>/sold">
+                            <!-- Form button to mark property as sold-->
+                            <button type="submit" class="btn btn-secondary">Sold</button>
+                          </form>
+                          <% } %>
+                            <% } %>
+                  </div>
+                </div>
+                <% } %>
+            </section>
+
+      </main>
+      <hr>
+      <%- include('partials/_footer') %>
+    </div>
 
 </body>
 
 </html>
-

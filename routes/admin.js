@@ -4,6 +4,7 @@ const cookieSession = require('cookie-session'); // For encrypted cookies
 const { route } = require('express/lib/application');
 const req = require('express/lib/request');
 const res = require('express/lib/response');
+const nodemailer = require('nodemailer');
 
 router.use(cookieSession({
   name: 'session',
@@ -157,6 +158,41 @@ WHERE users.email = $1`, [email]).then(data => {
       });
     ;
   });
+
+  router.post("/admin/message", (req, res) => {
+    const { email, subject, message } = req.body
+
+
+        // create reusable transporter object using SMTP transport
+        const transporter = nodemailer.createTransport({
+
+          service: 'gmail',
+          auth: {
+            user: process.env.GMAIL_USER,
+            pass: process.env.GMAIL_PASS
+          }
+        });
+        const mailOptions = {
+          from: "homedirect2022@gmail.com",
+          to: `${email}`,
+          subject: `${subject}`,
+          text: `${message}`
+        };
+
+        transporter.sendMail(mailOptions, function (error, info) {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Message sent: ' + info.response);
+          }
+        });
+
+
+        res.redirect('/login');
+      })
+
+
+
   return router;
 };
 

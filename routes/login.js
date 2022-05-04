@@ -21,7 +21,7 @@ module.exports = (db) => {
       .then(user => {
         const isAdmin = user.rows[0].is_admin;
         let query = `
-          SELECT * FROM properties`;
+          SELECT * FROM properties ORDER BY properties.id`;
 
           db.query(query)
             .then(data => {

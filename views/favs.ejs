@@ -23,6 +23,7 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/property.js"></script>
   <script type="text/javascript" src="/scripts/favorites.js"></script>
 </head>
 
@@ -94,11 +95,11 @@
         <% for (const row of properties_favs) { %>
           <div id="feed">
             <hr>
-            <article>             
-              <h5>
+            <article>
+              <h5 class=" 1-<%= row.id %> open-property" >
                 <%= row.title %>
               </h5>
-              <img  class="property-image" src=<%=row.cover_image_url %>>
+              <img  class="1-<%= row.id %> open-property property-image" src=<%=row.cover_image_url %>>
               <div>
                 <spam>$ <%= row.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %>
                 </spam>

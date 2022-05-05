@@ -102,7 +102,7 @@
               <div>
                 <spam>$ <%= row.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %>
                 </spam>
-                <i class="fa-solid fa-heart <%= row.id %>"></i>
+                <i class="fa-solid fa-heart <%= row.id %>" id="liked"></i>
               </div>
               <p>
                 <%= row.property_type%> | <%= row.number_of_bedrooms%> bed | <%= row.number_of_bathrooms%> bath

@@ -146,7 +146,7 @@
                 <% if(favP.includes(row.id)){ %>
                   <i class="fa-solid fa-heart <%= row.id %>" id="liked"></i>
                 <% } else { %>
-                  <i class="fa-solid fa-heart <%= row.id %>"></i>
+                  <i class="fa-solid fa-heart <%= row.id %>" data-favs="<%= favP %>"></i>
                   <% } %>
               </div>
               <i class="smile" data-laugh="<%= row.id %>"> 😀 </i>

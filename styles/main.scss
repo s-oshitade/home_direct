@@ -8,6 +8,10 @@ main {
   // min-height: 100vh;
   // background-color: $main-color;
   // margin: auto;
+  #liked {
+    color: tomato;
+  }
+
   h2 {
     // color: $main-font-color;
     font-family: cursive;
@@ -26,9 +30,12 @@ main {
       border-radius: 5%;
     }
   }
+  .fa-solid {
+    color: darkgray;
+  }
 
   .fa-solid:hover{
-    color: royalblue;
+    color: tomato;
   }
 
 }

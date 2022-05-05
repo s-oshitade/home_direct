@@ -131,7 +131,7 @@
           </div>
           <% } %>
          </div>
-      <section class="feed">
+      <section class="feed <%= favP %>">
         <% for (const row of properties_user) { %>
           <div id="feed">
             <hr>
@@ -143,8 +143,13 @@
               <div>
                 <spam>$ <%= row.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %>
                 </spam>
-                <i class="fa-solid fa-heart <%= row.id %>"></i>
+                <% if(favP.includes(row.id)){ %>
+                  <i class="fa-solid fa-heart <%= row.id %>" id="liked"></i>
+                <% } else { %>
+                  <i class="fa-solid fa-heart <%= row.id %>"></i>
+                  <% } %>
               </div>
+              <i class="smile" data-laugh="<%= row.id %>"> 😀 </i>
               <p>
                 <%= row.property_type%> | <%= row.number_of_bedrooms%> bed | <%= row.number_of_bathrooms%> bath
               </p>

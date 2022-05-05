@@ -11,7 +11,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
     integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/media.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/index.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -28,13 +29,13 @@
 <body>
   <%- include('partials/_nav',{admin: 'notLoggedIn'}) %>
   <%- include('partials/_header') %>
-  <div class="super-main">
+  <div style="padding-top: 2vw;" class="super-main">
 
     <main>
-      <h2>Find your next perfect place with ease!</h2>
+      <h1 class="index-h1">Find your next perfect place with ease!</h1>
       <%- include('partials/_search') %>
-      <div>
-        <h2>Check out our featured listings...</h2>
+      <div class="index-h2">
+        <h2 >&nbsp;<i style="color: #406882;" class="fa-solid fa-star"></i></i>&nbsp;&nbsp; Check out our featured listings...</h2>
       </div>
       <section class="feed">
 

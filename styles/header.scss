@@ -1,13 +1,13 @@
-header {
+.main-header {
   margin: auto;
   font-size: 0.75rem;
   font: cursive;
-  padding-top: 2.5%;
+  padding-top: 120px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
-.carousal-header {
-  font-size: 10em;
-  padding-bottom: 30%;
-}
-.carousel-inner {
-  z-index: -1;
+
+.banner-text1 {
+  font-size: 4vw;
+  font-weight: bold;
+  backdrop-filter: blur(5px);
 }

@@ -3,6 +3,40 @@ const router  = express.Router();
 const cookieSession = require('cookie-session'); // For encrypted cookies
 const properties = require('./properties');
 
+// router.use(cookieSession({
+//   name: 'session',
+//   keys: ["key1", "key2"],
+// }));
+
+// module.exports = (db) => {
+//   router.get("/", (req, res) => {
+//     let userID =  req.session.user_id;
+//     console.log("PRINTING userID", userID);
+//     if(userID) {
+//     let authValue = [userID];
+//     let authQuery = `SELECT * FROM users
+//     WHERE id = $1`;
+
+//     db.query(authQuery,authValue)
+//       .then(user => {
+//         const isAdmin = user.rows[0].is_admin;
+//         let query = `
+//           SELECT * FROM properties ORDER BY properties.id`;
+
+//           db.query(query)
+//             .then(data => {
+//               const properties_user = data.rows;
+//               res.render("users", {properties_user, admin: isAdmin});
+//             })
+//           })
+//           .catch(err => {
+//             res.render("error");
+//           });
+//     } else {
+//       res.render("login");
+//     }
+//   });
+
 router.use(cookieSession({
   name: 'session',
   keys: ["key1", "key2"],
@@ -20,13 +54,28 @@ module.exports = (db) => {
     db.query(authQuery,authValue)
       .then(user => {
         const isAdmin = user.rows[0].is_admin;
+        let value = [userID];
         let query = `
+          SELECT * from favourite_properties
+          where user_id = $1;
+        `
+        db.query(query, value)
+        .then(favs => {
+          const likedProperties = favs.rows;
+          
+          let query = `
           SELECT * FROM properties ORDER BY properties.id`;
-
           db.query(query)
-            .then(data => {
-              const properties_user = data.rows;
-              res.render("users", {properties_user, admin: isAdmin});
+          .then(data => {
+                console.log("liked properties", likedProperties);
+                const properties_user = data.rows;   
+                let propertyId = [] ;
+                for (const item of likedProperties) {
+                  propertyId.push(item.property_id);                  
+                }
+                 console.log("THE OBJECT", {properties_user, admin: isAdmin, favP: propertyId})
+                 res.render("users", {properties_user, admin: isAdmin, favP: propertyId});
+              })
             })
           })
           .catch(err => {
@@ -36,7 +85,6 @@ module.exports = (db) => {
       res.render("login");
     }
   });
-
 
   router.post("/", (req, res) => {
 

@@ -21,7 +21,7 @@ module.exports = (db) => {
       .then(user => {
         const isAdmin = user.rows[0].is_admin;
         let query = `
-          SELECT * FROM properties`;
+          SELECT * FROM properties ORDER BY properties.id`;
 
           db.query(query)
             .then(data => {
@@ -64,7 +64,7 @@ module.exports = (db) => {
      let query = `SELECT * FROM properties
                 JOIN favourite_properties ON properties.id = favourite_properties.property_id
                 WHERE favourite_properties.user_id = $1;
-    `; 
+    `;
     db.query(query, value)
       .then(data => {
         const properties_favs = data.rows;
@@ -85,8 +85,8 @@ module.exports = (db) => {
     console.log("PRINTING USER ID FROM FAVS - POST - line 80", userID);
     let value = [userID, favId];
     let query = `INSERT INTO favourite_properties (user_id, property_id)
-    VALUES ($1, $2);`; 
-    
+    VALUES ($1, $2);`;
+
     console.log(query);
     db.query(query, value)
       .then(data => {

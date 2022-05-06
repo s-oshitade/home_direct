@@ -1,43 +1,98 @@
-LHL Node Skeleton
-=========
 
-## Project Setup
+# HomeDirect 
 
-The following steps are only for _one_ of the group members to perform.
+## About 
+HomeDirect is a platform that enables `transparent` real estate deals by offering buyers and sellers an option to interact `directly`. Think about it as the [Rent Faster](https://www.rentfaster.ca/) for property buyers. We believe that houses should be available for purchase at advertised rates. The aim is to address the wide-spread bid wars and resultant upward pressure on the prices of real estate properties in Canada.
 
-1. Create your own copy of this repo using the `Use This Template` button, ideally using the name of your project. The repo should be marked Public
-2. Verify that the skeleton code now shows up in your repo on GitHub, you should be automatically redirected
-3. Clone your copy of the repo to your dev machine
-4. Add your team members as collaborators to the project so that they can push to this repo
-5. Let your team members know the repo URL so that they use the same repo (they should _not_ create a copy/fork of this repo since that will add additional workflow complexity to the project)
+Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH01), [Edgar Sargsyan](https://github.com/Edgarsar) and [yours truly](https://www.linkedin.com/in/seun-oshitade-53001120b/), this was an opportunity to experience web development in a collaborative environment. Learning outcomes include:
 
+* Translating requirements into user stories and features for development
+* Wireframing and planning of frontend architecture
+* Considerations for technology options and decisions around Multi Page Applicaiton (MPA) versus Single Page Application (SPA)
+* Planning the data requirements for the application, building a relational databse and integrate the database with server and frontend
+* Using SASS/ SCSS preprocessor
+* Creating routes on `Express` and manipluating the DOM  
+* Writing Asynchronous JavaScript using `jQuery` and supporting dynamic interaction of users with the application while ensuring data persistence
+* Using APIs from third party providers
+* Responsive web design
+* Using the collaborative features of git and github
+* Project delivery in an agile environment
+* Team work and coordination
+## Tech Stack
+* Frontend - HTML, CSS, SCSS/SASS Pre-proprcessor, Bootstrap, jQuery
+* Backend - Express, Embedded JavaScript, Nodejs
+* Database - PostgreSQL
+
+## Features
+* Login as buyer/seller and explore property listings
+* Search for properties based on criteria such as location, price, number of beds/baths
+* Logged-in users can fav properties and view them later 
+* Contact property owners directly 
+* Admin can create, delete and edit property listings
+* Responsive design for different screen sizes
+* Featured properties on the main feed
+* Detailed view of selected properties using carousel
+
+## Final Product (MVP)
+### Overview
+![GIF](https://media2.giphy.com/media/05ynbd8pt9RBtPumGb/giphy.gif?cid=790b7611cba71ae1dcafa1a95619da91387ef51d7cb2c928&rid=giphy.gif&ct=g)
+### Landing Page
+![Welcome page](https://raw.githubusercontent.com/s-oshitade/home-direct/61a03d2b5419aa0915ec4742d1cd6c7ba7d0c17c/docs/Screen%20Shot%202022-05-06%20at%202.43.44%20PM.png)
+
+![Welcome Page2](https://github.com/s-oshitade/home-direct/blob/master/docs/Screen%20Shot%202022-05-06%20at%203.05.01%20PM.png?raw=true)
+
+### Featured Listings
+![Featured listings](https://raw.githubusercontent.com/s-oshitade/home-direct/61a03d2b5419aa0915ec4742d1cd6c7ba7d0c17c/docs/Screen%20Shot%202022-05-06%20at%202.25.42%20PM.png)
+
+### Favorites
+![Favorites](https://raw.githubusercontent.com/s-oshitade/home-direct/61a03d2b5419aa0915ec4742d1cd6c7ba7d0c17c/docs/Screen%20Shot%202022-05-06%20at%202.54.14%20PM.png)
+
+### Mobile View
+![Mobile Page](https://raw.githubusercontent.com/s-oshitade/home-direct/61a03d2b5419aa0915ec4742d1cd6c7ba7d0c17c/docs/Screen%20Shot%202022-05-06%20at%202.38.10%20PM.png)
+
+### Individual Listing
+![Individual listing](https://github.com/s-oshitade/home-direct/blob/master/docs/Screen%20Shot%202022-05-06%20at%202.29.21%20PM.png?raw=true)
+
+![Individual view close-up](https://github.com/s-oshitade/home-direct/blob/master/docs/Screen%20Shot%202022-05-06%20at%202.30.06%20PM.png?raw=true)
+## Dependencies
+* cookie-session
+* dotenv
+* ejs
+* express
+* morgan
+* nodemailer
+* pg
+* sass
+
+## Continuous Improvement
+* Automated (unit) testing
+* Toggle light and dark view
+* More robust implementation of favorites and messaging features
+* Incorporate google maps in the property listings
+* Enhanced considerations for user data privacy
+* Host application on Heroku or order hosting platforms
 
 ## Getting Started
-
-1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
-2. Update the .env file with your correct local information 
-  - username: `labber` 
-  - password: `labber` 
-  - database: `midterm`
-3. Install dependencies: `npm i`
-4. Fix to binaries for sass: `npm rebuild node-sass`
-5. Reset database: `npm run db:reset`
-  - Check the db folder to see what gets created and seeded in the SDB
-7. Run the server: `npm run local`
+1. Create the `.env` by using `.env.example` as a reference. Update the .env file with your correct local information
+2. Install dependencies: `npm i`
+3. Fix to binaries for sass: `npm rebuild node-sass`
+4. Reset database: `npm run db:reset`
+5. Run the server: `npm run local`
   - Note: nodemon is used, so you should not have to restart your server
-8. Visit `http://localhost:8080/`
+6. Visit `http://localhost:8080/`
 
-## Warnings & Tips
+## Commercial
+``` 
+Although this project was completed primarily for eductational purposes, we know that the value proposition is real and the project can be implemented/ commercialized. If you wish to discuss this or similar platform-based opportunities, please send an email to seun.oshitade@gmail.com. 
+```
 
-- Do not edit the `layout.css` file directly, it is auto-generated by `layout.scss`
-- Split routes into their own resource-based file names, as demonstrated with `users.js` and `widgets.js`
-- Split database schema (table definitions) and seeds (inserts) into separate files, one per table. See `db` folder for pre-populated examples. 
-- Use the `npm run db:reset` command each time there is a change to the database schema or seeds. 
-  - It runs through each of the files, in order, and executes them against the database. 
-  - Note: you will lose all newly created (test) data each time this is run, since the schema files will tend to `DROP` the tables and recreate them.
+## Acknowledgement
+Credit to [Ian Bentley](https://github.com/idbentley) and the community of mentors at Lighthouse Labs for providing needed guidance in the course of this project.
 
-## Dependencies
+## License
+Selected aspects of this project may be subject to intellectual property rights.
 
-- Node 10.x or above
-- NPM 5.x or above
-- PG 6.x
+
+
+
+

@@ -13,30 +13,6 @@ router.use(cookieSession({
 
 module.exports = (db) => {
 
-  router.post("/admin/add_form", (req, res) => {
-    res.render("adminAdd");
-  })
-  // Fetch all the properties from the database
-  router.get("/admin/:id", (req, res) => {
-    let user = isAdmin(req.params.id, db);
-    console.log(user);
-
-    req.session.user_id = req.params.id;
-    let query = `SELECT properties.*, images.* FROM properties
-    JOIN images ON properties.id = images.property_id`;
-    db.query(query)
-      .then(data => {
-        const properties = data.rows;
-        //console.log(properties)
-        res.render("adminView", { properties });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  })
-
   router.post("/admin/add", (req, res) => {
     // console.log(req.body)
     const { email } = req.body

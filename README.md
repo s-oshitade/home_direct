@@ -78,7 +78,6 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 3. Fix to binaries for sass: `npm rebuild node-sass`
 4. Reset database: `npm run db:reset`
 5. Run the server: `npm run local`
-  - Note: nodemon is used, so you should not have to restart your server
 6. Visit `http://localhost:8080/`
 
 ## Commercial

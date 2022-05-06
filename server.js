@@ -24,7 +24,7 @@ app.use(morgan("dev"));
 app.use(cookieSession({
   name: 'session',
   keys: ["key1"],
-  maxAge: 24 * 60 * 60 * 1000 
+  maxAge: 24 * 60 * 60 * 1000
 }));
 
 app.set("view engine", "ejs");
@@ -43,10 +43,8 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
 const adminRoutes = require("./routes/admin")
 const propertiesRoutes = require("./routes/properties");
-const contactRoutes = require("./routes/contact");
 const errorRoutes = require("./routes/error");
 const loginRoutes = require("./routes/login");
 const favsRoutes = require("./routes/favs");
@@ -58,8 +56,6 @@ const smsRoutes = require("./routes/sms");
 app.use("/", adminRoutes(db));
 app.use("/properties", propertiesRoutes(db));
 app.use("/login", loginRoutes(db))
-// app.use("/login/:userID", usersRoutes(db))
-app.use("/contact", contactRoutes(db));
 app.use("/error", errorRoutes(db));
 app.use("/favs", favsRoutes(db));
 app.use("/sms", smsRoutes(db));

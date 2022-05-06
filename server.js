@@ -72,7 +72,12 @@ app.get("/", (req, res) => { //62
   db.query(query)
     .then(data => {
       const featuredProperties = data.rows;
-      res.render('index', { featuredProperties });
+      if(req.session.user_id) {
+        userLogin = req.session.user_id;
+      } else {
+        userLogin = undefined;
+      }
+      res.render('index', { featuredProperties,userLogin});
     })
     .catch(err => {
       res

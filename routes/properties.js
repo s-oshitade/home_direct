@@ -15,7 +15,12 @@ module.exports = (db) => {
     .then(data => {
       const properties = data.rows;
 
-      res.render("properties", { properties });
+      if(req.session.user_id) {
+        userLogin = req.session.user_id;
+      } else {
+        userLogin = undefined;
+      }
+      res.render("properties", { properties, userLogin});
     })
     .catch(err => {
       res
@@ -27,7 +32,12 @@ module.exports = (db) => {
   router.get("/search", (req, res) => {
     propertySearch(req.query, db).then(data => {
       const properties = data.rows;
-      res.render("properties", { properties });
+      if(req.session.user_id) {
+        userLogin = req.session.user_id;
+      } else {
+        userLogin = undefined;
+      }
+      res.render("properties", { properties, userLogin });
     })
       .catch(err => {
         res
@@ -98,9 +108,13 @@ module.exports = (db) => {
     db.query(queryString, value)
       .then(data => {
         const properties= data.rows[0];
+        if(req.session.user_id) {
+          userLogin = req.session.user_id;
+        } else {
+          userLogin = undefined;
+        }
 
-        console.log(data.rows);
-        res.render("individualProperty", { properties });
+        res.render("individualProperty", { properties, userLogin });
       })
       .catch(err => {
         res

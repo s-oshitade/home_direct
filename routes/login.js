@@ -41,7 +41,7 @@ module.exports = (db) => {
                   propertyId.push(item.property_id);
                 }
                  console.log("THE OBJECT", {properties_user, admin: isAdmin, favP: propertyId})
-                 res.render("users", {properties_user, admin: isAdmin, favP: propertyId});
+                 res.render("users", {properties_user, admin: isAdmin, favP: propertyId, userLogin: req.session.user_id});
               })
             })
           })
@@ -49,7 +49,12 @@ module.exports = (db) => {
             res.render("error");
           });
     } else {
-      res.render("login");
+      if(req.session.user_id) {
+        userLogin = req.session.user_id;
+      } else {
+        userLogin = undefined;
+      }
+      res.render("login",{userLogin});
     }
   });
 
@@ -62,7 +67,6 @@ module.exports = (db) => {
     db.query(authQuery,authValue)
       .then(user => {
         req.session.user_id = user.rows[0].id;
-
         res.redirect("/login");
       })
       .catch(err => {
@@ -94,8 +98,6 @@ module.exports = (db) => {
 
   router.post("/favs", (req, res) => {
     let userID =  req.session.user_id;
-    // console.log("body", req.body)
-    // console.log("params", req.params)
     const favId = req.body.favId;
     console.log("PRINTING USER ID FROM FAVS - POST - line 80", userID);
     let value = [userID, favId];
@@ -106,7 +108,12 @@ module.exports = (db) => {
     db.query(query, value)
       .then(data => {
         const properties_favs = data.rows;
-        res.render('favs', {properties_favs})
+        if(req.session.user_id) {
+          userLogin = req.session.user_id;
+        } else {
+          userLogin = undefined;
+        }
+        res.render('favs', {properties_favs, userLogin})
       })
       .catch(err => {
         res

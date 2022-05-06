@@ -20,9 +20,11 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/media.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/index.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/property.js"></script>
   <script type="text/javascript" src="/scripts/favorites.js"></script>
 </head>
 
@@ -30,7 +32,7 @@
   <%- include('partials/_nav',{admin: 'notLoggedIn'}) %>
   <div class="super-main">
     <main>
-      <h2>Find your next perfect place with ease!</h2>
+      <h1 class="index-h1">Find your next perfect place with ease!</h2>
       <section class="search">
         <form class="row gx-6 gy-2 align-items-center" action="/properties" method="GET">
           <div class="col-sm-2">
@@ -87,18 +89,18 @@
         </form>
       </section>
       <div>
-        <h2>Check out our featured listings...</h2>
+        <h2 class ="index-h2"><i class="fa-regular fa-heart"></i> My favourites</h2>
       </div>
       <section class="feed">
 
         <% for (const row of properties_favs) { %>
           <div id="feed">
             <hr>
-            <article>             
-              <h5>
+            <article>
+              <h5 class=" 1-<%= row.id %> open-property" >
                 <%= row.title %>
               </h5>
-              <img  class="property-image" src=<%=row.cover_image_url %>>
+              <img  class="1-<%= row.id %> open-property property-image" src=<%=row.cover_image_url %>>
               <div>
                 <spam>$ <%= row.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ) %>
                 </spam>

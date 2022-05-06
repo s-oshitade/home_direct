@@ -29,7 +29,26 @@
 </head>
 
 <body>
-  <%- include('partials/_nav',{admin: 'notLoggedIn'}) %>
+  
+<nav>
+  <img src="https://github.com/s-oshitade/home-direct/blob/frontend/docs/logo.png?raw=true" alt="logo">
+  <i id="burger" class="fa-solid fa-bars"></i>
+  <div class="nav-right">
+    <ul>
+      <a href="/">Home</a>
+    </ul>
+      <ul>
+        <a href="/properties">Our Properties</a>
+      </ul>
+    
+      <ul>
+        <a href="/login/logout">Logout</a>
+      </ul>
+    <ul>
+      <a href="mailto:info@homedirect.org" class="btn cta">Contact Us</a>
+    </ul>
+  </div>
+</nav>
   <div class="super-main">
     <main>
       <h1 class="index-h1">Find your next perfect place with ease!</h2>

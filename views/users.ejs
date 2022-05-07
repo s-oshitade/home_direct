@@ -165,7 +165,7 @@
                 </form>
                     <% if(row.active ===  true) { %>
                       <form method="POST" action="/admin/properties/<%= row.id %>/sold">  <!-- Form button to mark property as sold-->
-                        <button type="submit" class="btn btn-success active">Available</button>
+                        <button type="submit" class="btn btn-success active">✅ as Sold</button>
                       </form>
                     <% } else {%>
                       <form method="POST" action="/admin/properties/<%= row.id %>/sold">  <!-- Form button to mark property as sold-->

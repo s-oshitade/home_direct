@@ -37,26 +37,39 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 ## Final Product (MVP)
 ### Overview
 ![GIF](https://media2.giphy.com/media/05ynbd8pt9RBtPumGb/giphy.gif?cid=790b7611cba71ae1dcafa1a95619da91387ef51d7cb2c928&rid=giphy.gif&ct=g)
+
+---
+
 ### Landing Page
 ![Welcome page](https://raw.githubusercontent.com/s-oshitade/home-direct/61a03d2b5419aa0915ec4742d1cd6c7ba7d0c17c/docs/Screen%20Shot%202022-05-06%20at%202.43.44%20PM.png)
 
+
 ![Welcome Page2](https://github.com/s-oshitade/home-direct/blob/master/docs/Screen%20Shot%202022-05-06%20at%203.05.01%20PM.png?raw=true)
+
+---
 
 ### Favorites
 ![Favorites](https://raw.githubusercontent.com/s-oshitade/home-direct/f2788ea56f67b31dab016fbf654745bd49696500/docs/07627B1F-F638-4FF5-856B-7CCE13EEB0BD_1_105_c.jpeg)
 
+---
+
 ### Mobile View
 ![Mobile Page](https://raw.githubusercontent.com/s-oshitade/home-direct/61a03d2b5419aa0915ec4742d1cd6c7ba7d0c17c/docs/Screen%20Shot%202022-05-06%20at%202.38.10%20PM.png)
+
+---
 
 ### Individual Listing
 ![Individual listing](https://github.com/s-oshitade/home-direct/blob/master/docs/Screen%20Shot%202022-05-06%20at%202.29.21%20PM.png?raw=true)
 
 ![Individual view close-up](https://github.com/s-oshitade/home-direct/blob/master/docs/Screen%20Shot%202022-05-06%20at%202.30.06%20PM.png?raw=true)
 
+---
+
 ### Map
 ![map](https://raw.githubusercontent.com/s-oshitade/home-direct/f2788ea56f67b31dab016fbf654745bd49696500/docs/4C017A98-E20C-452D-A480-E145DAAD452A_1_105_c.jpeg)
 
-
+---
+ 
 ## Dependencies
 * cookie-session
 * dotenv
@@ -67,6 +80,8 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 * pg
 * sass
 
+---
+
 ## Continuous Improvement
 * Automated (unit) testing
 * Toggle light and dark view
@@ -74,6 +89,8 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 * Incorporate google maps in the property listings
 * Enhanced considerations for user data privacy
 * Host application on Heroku or order hosting platforms
+
+---
 
 ## Getting Started
 1. Create the `.env` by using `.env.example` as a reference. Update the .env file with your correct local information
@@ -83,16 +100,22 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 5. Run the server: `npm run local`
 6. Visit `http://localhost:8080/`
 
+---
+
 ## Commercial
 ``` 
 Although this project was completed primarily for eductational purposes, we know that the value proposition is real and the project can be implemented/ commercialized. If you wish to discuss this or similar platform-based opportunities, please send an email to seun.oshitade@gmail.com. 
 ```
-
+---
 ## Acknowledgement
 Credit to [Ian Bentley](https://github.com/idbentley) and the community of mentors at Lighthouse Labs for providing needed guidance in the course of this project.
 
+---
+
 ## License
 Selected aspects of this project may be subject to intellectual property rights.
+
+---
 
 
 

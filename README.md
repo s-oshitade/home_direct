@@ -19,13 +19,11 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 * Project delivery in an agile environment
 * Team work and coordination
 
----
 ## Tech Stack
 * Frontend - HTML, CSS, SCSS/SASS Pre-proprcessor, Bootstrap, jQuery
 * Backend - Express, Embedded JavaScript, Nodejs
 * Database - PostgreSQL
 
----
 ## Features
 * Login as buyer/seller and explore property listings
 * Search for properties based on criteria such as location, price, number of beds/baths
@@ -37,7 +35,6 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 * Featured properties on the main feed
 * Detailed view of selected properties using carousel
 
----
 ## Minimum Viable Product
 ### Overview
 ![GIF](https://media2.giphy.com/media/05ynbd8pt9RBtPumGb/giphy.gif?cid=790b7611cba71ae1dcafa1a95619da91387ef51d7cb2c928&rid=giphy.gif&ct=g)
@@ -82,7 +79,6 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 * pg
 * sass
 
----
 
 ## Continuous Improvement
 * Automated (unit) testing
@@ -92,7 +88,6 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 * Enhanced considerations for user data privacy
 * Host application on Heroku or order hosting platforms
 
----
 
 ## Getting Started
 1. Create the `.env` by using `.env.example` as a reference. Update the .env file with your correct local information
@@ -102,22 +97,18 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 5. Run the server: `npm run local`
 6. Visit `http://localhost:8080/`
 
----
 
 ## Commercial
 ``` 
 Although this project was completed primarily for eductational purposes, we know that the value proposition is real and the project can be implemented/ commercialized. If you wish to discuss this or similar platform-based opportunities, please send an email to seun.oshitade@gmail.com. 
 ```
----
 ## Acknowledgement
 Credit to [Ian Bentley](https://github.com/idbentley) and the community of mentors at Lighthouse Labs for providing needed guidance in the course of this project.
 
----
 
 ## License
 Selected aspects of this project may be subject to intellectual property rights.
 
----
 
 
 

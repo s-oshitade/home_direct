@@ -18,11 +18,14 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 * Using the collaborative features of git and github
 * Project delivery in an agile environment
 * Team work and coordination
+
+---
 ## Tech Stack
 * Frontend - HTML, CSS, SCSS/SASS Pre-proprcessor, Bootstrap, jQuery
 * Backend - Express, Embedded JavaScript, Nodejs
 * Database - PostgreSQL
 
+---
 ## Features
 * Login as buyer/seller and explore property listings
 * Search for properties based on criteria such as location, price, number of beds/baths
@@ -34,7 +37,8 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 * Featured properties on the main feed
 * Detailed view of selected properties using carousel
 
-## Final Product (MVP)
+---
+## Minimum Viable Product
 ### Overview
 ![GIF](https://media2.giphy.com/media/05ynbd8pt9RBtPumGb/giphy.gif?cid=790b7611cba71ae1dcafa1a95619da91387ef51d7cb2c928&rid=giphy.gif&ct=g)
 
@@ -60,8 +64,6 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 
 ### Individual Listing
 ![Individual listing](https://github.com/s-oshitade/home-direct/blob/master/docs/Screen%20Shot%202022-05-06%20at%202.29.21%20PM.png?raw=true)
-
-![Individual view close-up](https://github.com/s-oshitade/home-direct/blob/master/docs/Screen%20Shot%202022-05-06%20at%202.30.06%20PM.png?raw=true)
 
 ---
 

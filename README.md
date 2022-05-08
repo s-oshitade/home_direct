@@ -37,7 +37,7 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 
 ## Minimum Viable Product
 ### Overview
-![GIF](https://media2.giphy.com/media/05ynbd8pt9RBtPumGb/giphy.gif?cid=790b7611cba71ae1dcafa1a95619da91387ef51d7cb2c928&rid=giphy.gif&ct=g)
+![GIF](https://github.com/s-oshitade/home-direct/blob/master/docs/HomeDirect-gif2.gif?raw=true)
 
 ---
 

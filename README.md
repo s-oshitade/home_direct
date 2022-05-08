@@ -9,11 +9,11 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 * Translating requirements into user stories and features for development
 * Wireframing and planning of frontend architecture
 * Considerations for technology options and decisions around Multi Page Applicaiton (MPA) versus Single Page Application (SPA)
-* Planning the data requirements for the application, building a relational databse and integrate the database with server and frontend
+* Planning the data requirements for the application, building a relational databse and integrating the database with server and frontend
 * Using SASS/ SCSS preprocessor
 * Creating routes on `Express` and manipluating the DOM  
 * Writing Asynchronous JavaScript using `jQuery` and supporting dynamic interaction of users with the application while ensuring data persistence
-* Using APIs from third party providers
+* Using third party APIs
 * Responsive web design
 * Using the collaborative features of git and github
 * Project delivery in an agile environment
@@ -84,16 +84,15 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 * Automated (unit) testing
 * Toggle light and dark view
 * More robust implementation of favorites and messaging features
-* Incorporate google maps in the property listings
 * Enhanced considerations for user data privacy
-* Host application on Heroku or order hosting platforms
+* Host application on Heroku or other hosting platforms
 
 
 ## Getting Started
 1. Create the `.env` by using `.env.example` as a reference. Update the .env file with your correct local information
 2. Install dependencies: `npm i`
-3. Fix to binaries for sass: `npm rebuild node-sass`
-4. Reset database: `npm run db:reset`
+3. Reset database: `npm run db:reset`
+4. Connect to psql and database: `psql` and `\c midterm`
 5. Run the server: `npm run local`
 6. Visit `http://localhost:8080/`
 

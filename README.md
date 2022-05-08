@@ -26,6 +26,7 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 ## Features
 * Login as buyer/seller and explore property listings
 * Search for properties based on criteria such as location, price, number of beds/baths
+* View map and satellite image of selected property dynamically
 * Logged-in users can fav properties and view them later 
 * Contact property owners directly 
 * Admin can create, delete and edit property listings
@@ -41,11 +42,8 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 
 ![Welcome Page2](https://github.com/s-oshitade/home-direct/blob/master/docs/Screen%20Shot%202022-05-06%20at%203.05.01%20PM.png?raw=true)
 
-### Featured Listings
-![Featured listings](https://raw.githubusercontent.com/s-oshitade/home-direct/61a03d2b5419aa0915ec4742d1cd6c7ba7d0c17c/docs/Screen%20Shot%202022-05-06%20at%202.25.42%20PM.png)
-
 ### Favorites
-![Favorites](https://raw.githubusercontent.com/s-oshitade/home-direct/61a03d2b5419aa0915ec4742d1cd6c7ba7d0c17c/docs/Screen%20Shot%202022-05-06%20at%202.54.14%20PM.png)
+![Favorites](https://raw.githubusercontent.com/s-oshitade/home-direct/f2788ea56f67b31dab016fbf654745bd49696500/docs/07627B1F-F638-4FF5-856B-7CCE13EEB0BD_1_105_c.jpeg)
 
 ### Mobile View
 ![Mobile Page](https://raw.githubusercontent.com/s-oshitade/home-direct/61a03d2b5419aa0915ec4742d1cd6c7ba7d0c17c/docs/Screen%20Shot%202022-05-06%20at%202.38.10%20PM.png)
@@ -54,6 +52,11 @@ Completed over a two-week duration by [Harshbir Singh](https://github.com/SinghH
 ![Individual listing](https://github.com/s-oshitade/home-direct/blob/master/docs/Screen%20Shot%202022-05-06%20at%202.29.21%20PM.png?raw=true)
 
 ![Individual view close-up](https://github.com/s-oshitade/home-direct/blob/master/docs/Screen%20Shot%202022-05-06%20at%202.30.06%20PM.png?raw=true)
+
+### Map
+![map](https://raw.githubusercontent.com/s-oshitade/home-direct/f2788ea56f67b31dab016fbf654745bd49696500/docs/4C017A98-E20C-452D-A480-E145DAAD452A_1_105_c.jpeg)
+
+
 ## Dependencies
 * cookie-session
 * dotenv
